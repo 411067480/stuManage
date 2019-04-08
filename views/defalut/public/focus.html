@@ -1,1 +1,37 @@
-
+<head>
+    <link rel="stylesheet" type="text/css" href="default/css/swiper.min.css" />
+</head>
+<!--轮播图-->
+<div class="Cooldog_container">
+    <div class="Cooldog_content">
+        <ul>
+            {{each focus}}
+            {{if $value.focusStatus==1}}
+            <li class="">
+                <a href="#">
+                    <img  src="{{$value.pic}}" alt="{{$value.title}}">
+                </a>
+            </li>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+    <a href="javascript:;" class="btn_left">
+        <i class="iconfont icon-zuoyoujiantou"></i>
+    </a>
+    <a href="javascript:;" class="btn_right">
+        <i class="iconfont icon-zuoyoujiantou-copy-copy"></i>
+    </a>
+    <a href="javascript:;" class="btn_close">
+        <i class="iconfont icon-icon-test"></i>
+    </a>
+    <div class="buttons clearfix">
+        <a href="javascript:;" class="color"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+    </div>
+</div>

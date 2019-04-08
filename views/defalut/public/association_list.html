@@ -1,0 +1,64 @@
+
+<div id="main">       
+	<div id="main_center-wrapper">
+		<div class="main_center">              
+			<h2>广州大学华软软件学院学生社团汇</h2>
+			<h3>这里是潜能发挥的胜地，50多个社团等着你。</h3>
+			<ul>
+				{{each associationcateResult}}
+				{{if $value.aStatus==1}}
+				<li title="{{$value.title}}">
+					<a href="fromIndexToplaySummaryContent/{{@$value._id}}" style="color:black;float:left;">	
+						<img  src="{{$value.pic}}" />
+						<h3>{{$value.associationName}}</h3>
+						<h6>
+							　更新时间:
+							{{if $value.update_time}}
+								{{$value.update_time | dateFormat}}
+							{{/if}}
+						</h6>	
+						<h6 style="color:rgb(0, 179, 255);">　点击查看简介</h6>
+					</a>
+					<hr>
+				</li>
+				{{/if}}
+				{{/each}}             
+			</ul>
+		</div>
+	</div>
+	
+</div>
+<div class="page">
+	<div id="page" class="pagination"></div>
+</div>
+
+{{include 'default/public/toTop.html'}}
+
+
+<!--注意放在jq下面-->
+<script src="{{__HOST__}}/default/jqPaginator.js"></script>
+<script>
+var mySwiper = new Swiper('.swiper-container',{
+	autoplay:true,
+	loop : true,
+	pagination: {
+	el: '.swiper-pagination',
+},
+	navigation: {
+	nextEl: '.swiper-button-next',
+	prevEl: '.swiper-button-prev',
+	}
+})
+	$('#page').jqPaginator({
+	totalPages: {{totalPages}},
+	visiblePages: 10,
+	currentPage: {{page}},
+	onPageChange: function (num, type) {
+	//console.log(num, type);
+
+	if(type=='change'){
+		location.href="{{__HOST__}}/summary?page="+num;
+	}
+	}
+	});
+</script>       
