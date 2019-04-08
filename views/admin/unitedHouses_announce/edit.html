@@ -1,6 +1,4 @@
-﻿
-<!DOCTYPE html>
-<html lang="en">
+﻿{{include 'admin/public/header.html'}}
 <head>
 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
@@ -31,10 +29,7 @@
 		margin-right: 5px;
 	}
 </style>
-
 </head>
-
-{{include 'admin/public/header.html'}}
 <body>
 	<div class="navbar navbar-default" id="navbar">
 		<script type="text/javascript">
@@ -86,70 +81,76 @@
 
 				<div class="page-header">
 					<h1>
-					增加社团公告
+					编辑社联公告
 					</h1>
 				</div><!-- /.page-header -->
 
 				<div class="table-responsive">
-					<form action="{{__HOST__}}/admin/unitedHouses_announce/doAdd" method="post" class="form-horizontal" style="border:1px solid #eee;" enctype="multipart/form-data">
-					
+					<form action="{{__HOST__}}/admin/unitedHouses_announce/doEdit" method="post" class="form-horizontal" style="border:1px solid #eee;" enctype="multipart/form-data">
 						<ul id="myTab" class="nav nav-tabs" style="height:44px;">
 							<li class="active">
 								<a href="#basic" data-toggle="tab">
-									社团公告
+								社团公告设置
 								</a>
 							</li>
 						</ul>
 						<div id="myTabContent" class="tab-content" style="border: none;">
+							<input type="hidden" name="id" id="id" value="{{@list._id}}"/><!--隐藏的表单域:获取传值_id-->
 							<!--社团基本信息设置-->
 							<div class="tab-pane fade in active" id="basic" >
 								<div class="form-group">
-									<label class="col-sm-2 control-label no-padding-right" for="unitedA_logo">社团logo:</label>
+									<label class="col-sm-2 control-label no-padding-right" for="unitedA_logo">更换logo:</label>
 									<div class="col-sm-10">
 										<label for="fileinp" id="label">
-											<input type="button" id="btn" value="点我上传"><span id="text">　支持 Gif / jpg / jpeg / png 格式图片</span>
+											<input type="button" id="btn" value="点我更换"><span id="text">　支持 Gif / jpg / jpeg / png 格式图片</span>
 											<input type="file" name="unitedA_logo" id="fileinp"/>
 										</label>
-									</div>	
+									</div>
+									<br/>
+										<img src="{{__HOST__}}/{{list.unitedA_logo}}" class="img" style="margin-left:270px;margin-top:7px;"/>
+									<br/>
 								</div>	
-
+								<br/><br/><br/><br/><br/>
 								<div class="form-group">
 									<label class="col-sm-2 control-label no-padding-right" for="pid">社团名称：</label>
 									<div class="col-sm-10">
 										<select name="pid" id="pid">
 											{{each catelist}}
-												<option value="{{@$value._id}}">{{$value.associationName}}</option>
+												<option value="{{@$value._id}}" {{if list.pid==$value._id}} selected {{/if}}>{{$value.associationName}}</option>
 											{{/each}}
 										</select>
 									</div>
-									<!--此处我i设置默认:所在社团:选项-->
-									<input type="text" name="associationName" id="associationName"  value="{{catelist[0].associationName}}" hidden/>
-								</div>	
-								
+									<input type="text" name="associationName" id="associationName"  value="{{list.associationName}}" hidden/>
+									<!-- <input type="text" name="id" id="id"  value="{{@list._id}}" hidden/>
+									<input type="text" name="prevPage" id="prevPage"  value="{{prevPage}}" hidden/> -->
+								</div>
+
 								<div class="form-group">
-									<label class="col-sm-2 control-label no-padding-right" for="uTitle">社团公告标题:</label>
-									<div class="col-sm-10">
-										<input type="text" id="uTitle"  name="uTitle" class="col-xs-10 col-sm-5" />
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="uTitle">社团公告标题:</label>
+										<div class="col-sm-10">
+											<input type="text" id="uTitle"  name="uTitle" class="col-xs-10 col-sm-5" value="{{list.uTitle}}"/>
+										</div>
 									</div>
 								</div>
-					
+
 								<div class="form-group">
-									<label class="col-sm-2 control-label no-padding-right">是否发布：</label>
+									<label class="col-sm-2 control-label no-padding-right">是否发布: </label>
 									<div class="col-sm-10">
-										<label for="status1">是：</label><input type="radio" name="uStatus"  id="status1" value="1" checked />
+										<label for="status1">是：</label><input type="radio" name="uStatus"  id="status1" value="1" {{if list.uStatus==1}}checked {{/if}}/>
 										&nbsp;
-										<label for="status2">否:</label><input type="radio" name="uStatus" id="status2" value="0" />
+										<label for="status2">否:</label><input type="radio" name="uStatus" id="status2" value="0" {{if list.uStatus==0}}checked {{/if}}/>
 									</div>
 								</div>
 								<div class="form-group" style="height:400px;">
 									<label class="col-sm-2 control-label no-padding-right">公告内容:</label>
 									<div class="col-sm-10">
-											<textarea name="uContent" id="uContent" cols="63" rows="10" style="line-height:30px;text-align: justify;text-indent:2em;"></textarea>
+										<textarea name="uContent" id="uContent" cols="63" rows="10" style="line-height:30px;text-align: justify;text-indent:2em;">{{list.uContent}}</textarea>
 									</div>
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label class="col-sm-2 control-label no-padding-right"></label>
 							<div class="col-sm-10">
@@ -175,6 +176,7 @@
 
 <script type="text/javascript">
 	jQuery(function($) {
+
 	$('table th input:checkbox').on('click' , function(){
 		var that = this;
 		$(this).closest('table').find('tr > td:first-child input:checkbox').each(function(){
@@ -182,6 +184,7 @@
 			$(this).closest('tr').toggleClass('selected');
 		});
 	});
+
 	$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
 	function tooltip_placement(context, source) {
 	var $source = $(source);
@@ -197,9 +200,7 @@
 	}
 	})
 
-	var ue = UE.getEditor('editor');
 </script>
-	
 </body>
 <script>
 	Calendar.create({
@@ -215,18 +216,18 @@
 	}
 
 
-	//分类改变的时候  把分类的名称赋值给隐藏的表单域
-	var pidDom=document.getElementById('pid');
-	var associationName=document.getElementById('associationName');
-	var options=pidDom.getElementsByTagName('option');
-	pidDom.onchange=function(){
-		//分类改变的时候 获取选中的值 赋值给  associationName
-		for(var i=0;i<options.length;i++){
-			if(options[i].selected){
-				associationName.value=options[i].innerHTML.trim();
-			}
+//分类改变的时候  把分类的名称赋值给隐藏的表单域
+var pidDom=document.getElementById('pid');
+var associationName=document.getElementById('associationName');
+var options=pidDom.getElementsByTagName('option');
+pidDom.onchange=function(){
+	//分类改变的时候 获取选中的值 赋值给  associationName
+	for(var i=0;i<options.length;i++){
+		if(options[i].selected){
+			associationName.value=options[i].innerHTML.trim();
 		}
 	}
+}
 </script>
 </html>
 
