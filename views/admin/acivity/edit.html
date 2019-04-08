@@ -1,6 +1,4 @@
-﻿
-<!DOCTYPE html>
-<html lang="en">
+﻿{{include 'admin/public/header.html'}}
 <head>
 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
@@ -10,6 +8,7 @@
 <script src="/datepicker/datepicker.js"></script>
 <style>
 	.calendar-item {
+		
 		text-align: center;
 		height: 28px;
 		width: 120px;
@@ -30,10 +29,7 @@
 		margin-right: 5px;
 	}
 </style>
-
 </head>
-
-{{include 'admin/public/header.html'}}
 <body>
 	<div class="navbar navbar-default" id="navbar">
 		<script type="text/javascript">
@@ -85,82 +81,81 @@
 
 				<div class="page-header">
 					<h1>
-					增加社团活动
+					编辑社团活动
 					</h1>
 				</div><!-- /.page-header -->
 
 				<div class="table-responsive">
-					<form action="{{__HOST__}}/admin/acivity/doAdd" method="post" class="form-horizontal" style="border:1px solid #eee;" enctype="multipart/form-data">
-						
+					<form action="{{__HOST__}}/admin/acivity/doEdit" method="post" class="form-horizontal" style="border:1px solid #eee;" enctype="multipart/form-data">
 						<ul id="myTab" class="nav nav-tabs" style="height:44px;">
 							<li class="active">
 								<a href="#basic" data-toggle="tab">
-									活动基本信息
+								社团活动设置
 								</a>
 							</li>
 						</ul>
 						<div id="myTabContent" class="tab-content" style="border: none;">
+							<input type="hidden" name="id" id="id" value="{{@list._id}}"/><!--隐藏的表单域:获取传值_id-->
 							<!--社团基本信息设置-->
-							<div class="tab-pane fade in active" id="basic">
-
+							<div class="tab-pane fade in active" id="basic" >
 								<div class="form-group">
-									<label class="col-sm-2 control-label no-padding-right" for="pic">上传相片:</label>
+									<label class="col-sm-2 control-label no-padding-right" for="pic">更换相片:</label>
 									<div class="col-sm-10">
 										<label for="fileinp" id="label">
-											<input type="button" id="btn" value="点我上传"><span id="text">　支持 Gif / jpg / jpeg / png 格式图片</span>
+											<input type="button" id="btn" value="点我更换"><span id="text">　支持 Gif / jpg / jpeg / png 格式图片</span>
 											<input type="file" name="pic" id="fileinp"/>
 										</label>
-									</div>	
-								</div>	
-
-								<div class="form-group">
-									<label class="col-sm-2 control-label no-padding-right" for="activityTitle">活动标题:</label>
-									<div class="col-sm-10">
-										<input type="text" id="activityTitle"  name="activityTitle" class="col-xs-10 col-sm-5" />
 									</div>
-								</div>
-
+									<br/>
+										<img src="{{__HOST__}}/{{list.pic}}" class="img" style="margin-left:270px;margin-top:7px;"/>
+									<br/>
+								</div>	
+								<br/><br/><br/><br/><br/>
 								<div class="form-group">
-									<label class="col-sm-2 control-label no-padding-right" for="pid">申请协会：</label>
+									<label class="col-sm-2 control-label no-padding-right" for="pid">社团名称:</label>
 									<div class="col-sm-10">
 										<select name="pid" id="pid">
 											{{each catelist}}
-												<!--一级分类-->
-												<option value="{{@$value._id}}">{{$value.associationName}}</option>
-												<!--二级分类-->
-												{{each $value.list}}
-													<option value="{{@$value._id}}">{{$value.associationName}}</option>
-												{{/each}}
+												<option value="{{@$value._id}}" {{if list.pid==$value._id}}selected {{/if}}>{{$value.associationName}}</option>
 											{{/each}}
 										</select>
 									</div>
-									<!--此处我i设置默认:所在社团:选项-->
-									<input type="text" name="associationName" id="associationName"  value="{{catelist[0].associationName}}" hidden/>
+									<input type="text" name="associationName" id="associationName"  value="{{list.associationName}}" hidden/>
+								</div>
+								<div class="form-group">
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="activityTitle">活动标题:</label>
+										<div class="col-sm-10">
+											<input type="text" id="activityTitle"  name="activityTitle" class="col-xs-10 col-sm-5" value="{{list.activityTitle}}"/>
+										</div>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="contributor">投稿人:</label>
+										<div class="col-sm-10">
+											<input type="text" id="contributor"  name="contributor" class="col-xs-10 col-sm-5" value="{{list.contributor}}"/>
+										</div>
+									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label no-padding-right" for="contributor">发布人:</label>
+									<label class="col-sm-2 control-label no-padding-right">活动状态: </label>
 									<div class="col-sm-10">
-										<input type="text" id="contributor"  name="contributor" class="col-xs-10 col-sm-5" />
-									</div>
-								</div>
-					
-								<div class="form-group">
-									<label class="col-sm-2 control-label no-padding-right">活动状态：</label>
-									<div class="col-sm-10">
-										<label for="status1">已审核：</label><input type="radio" name="activityStatus"  id="status1" value="1" checked />
+										<label for="status1">已审核：</label><input type="radio" name="activityStatus"  id="status1" value="1" {{if list.activityStatus==1}}checked {{/if}}/>
 										&nbsp;
-										<label for="status2">未审核:</label><input type="radio" name="activityStatus" id="status2" value="0" />
+										<label for="status2">未审核:</label><input type="radio" name="activityStatus" id="status2" value="0" {{if list.activityStatus==0}}checked {{/if}}/>
 									</div>
 								</div>
 								<div class="form-group" style="height:100px;">
 									<label class="col-sm-2 control-label no-padding-right">活动简介:</label>
 									<div class="col-sm-10">
-											<textarea name="activityContent" id="activityContent" cols="71" rows="3" style="line-height:30px;text-align: justify;text-indent:2em;"></textarea>
+										<textarea name="activityContent" id="activityContent" cols="71" rows="3" style="line-height:30px;text-align: justify;text-indent:2em;">{{list.activityContent}}</textarea>
 									</div>
 								</div>
 								<div class="form-group" style="height:400px;">
-									<label class="col-sm-2 control-label no-padding-right">活动新闻全文:</label>
+									<label class="col-sm-2 control-label no-padding-right">社团新闻全文:</label>
 									<div class="col-sm-10">
 										<script name="mainArticle" id="editor" type="text/plain" style="width:600px;height:300px;"></script>
 									</div>
@@ -193,6 +188,7 @@
 
 <script type="text/javascript">
 	jQuery(function($) {
+
 	$('table th input:checkbox').on('click' , function(){
 		var that = this;
 		$(this).closest('table').find('tr > td:first-child input:checkbox').each(function(){
@@ -200,6 +196,7 @@
 			$(this).closest('tr').toggleClass('selected');
 		});
 	});
+
 	$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
 	function tooltip_placement(context, source) {
 	var $source = $(source);
@@ -215,9 +212,12 @@
 	}
 	})
 
-	var ue = UE.getEditor('editor');
+var ueditor = UE.getEditor('editor');
+ueditor.addListener("ready", function (){ /*注意*/
+	// editor 准备好之后才可以使用
+	ueditor.setContent(`{{@list.mainArticle}}`);        /*es6的模板字符串*/
+});
 </script>
-	
 </body>
 <script>
 	Calendar.create({
@@ -246,8 +246,6 @@
 			}
 		}
 	}
-</script>
-
 </script>
 </html>
 
