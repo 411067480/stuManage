@@ -52,35 +52,44 @@
 
 				<div class="page-header">
 					<h1>
-						增加友情链接
+						修改友情链接
 					</h1>
 				</div><!-- /.page-header -->
 
 				<!--表格-->
 
 				<div class="table-responsive">
-					<form action="{{__HOST__}}/admin/link/doAdd" method="post" class="form-horizontal" enctype="multipart/form-data">
+					<form action="{{__HOST__}}/admin/link/doEdit" method="post" class="form-horizontal" enctype="multipart/form-data">
 						<div class="form-group">
 							<label class="col-sm-2 control-label no-padding-right" for="title">链接名称:</label>
 
 							<div class="col-sm-10">
-								<input type="text" id="title"  name="title" class="col-xs-10 col-sm-5" />
+								<input type="text" id="title"  name="title" class="col-xs-10 col-sm-5" value="{{list.title}}" />
+
+
+								<input type="hidden" name="id" value="{{@list._id}}"/>
+								<input type="hidden" name="prevPage" value="{{prevPage}}"/>
+
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group"  style="height: 140px;">
 							<label class="col-sm-2 control-label no-padding-right" for="title">轮播图:</label>
 
 							<div class="col-sm-10">
 								<input type="file" name="pic"/>
 							</div>
+
+							<br/>
+							<img src="{{__HOST__}}/{{list.pic}}" alt="" class="img"/>
+							<br/>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-2 control-label no-padding-right" for="title">链接地址:</label>
 
 							<div class="col-sm-10">
-								<input type="text" id="url"  name="url" class="col-xs-10 col-sm-5" />
+								<input type="text" id="url"  name="url" class="col-xs-10 col-sm-5"  value="{{list.url}}" />
 							</div>
 						</div>
 
@@ -88,16 +97,16 @@
 							<label class="col-sm-2 control-label no-padding-right" for="title">排序:</label>
 
 							<div class="col-sm-10">
-								<input type="text" id="sort"  name="sort" class="col-xs-10 col-sm-5" />
+								<input type="text" id="sort"  name="sort" class="col-xs-10 col-sm-5"  value="{{list.sort}}" />
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-2 control-label no-padding-right">状态：</label>
 							<div class="col-sm-10">
-								<label for="status1">已审核：</label><input type="radio" name="status"  id="status1" value="1" checked />
+								<label for="status1">已审核：</label><input type="radio" name="status"  id="status1" value="1"  {{if list.status==1}}checked {{/if}} />
 								&nbsp;
-								<label for="status2">未审核:</label><input type="radio" name="status" id="status2" value="0" />
+								<label for="status2">未审核:</label><input type="radio" name="status" id="status2" value="0"   {{if list.status==0}}checked {{/if}} />
 							</div>
 						</div>
 
