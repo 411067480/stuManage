@@ -1,0 +1,47 @@
+.form-horizontal .form-group{
+    height: 44px;
+}
+
+.sort_input{
+
+    width: 40px;
+    text-align: center;
+}
+
+.pagination{
+
+    float: right;
+}
+
+.img{
+    height:100px;
+    margin-top: 15px;
+    margin-left: 12px;
+}
+.site_img{
+    height:50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 12px;
+}   
+/*上传头像 点击“点我上传样式*/
+#label{
+    position: relative;
+   }         
+   #fileinp{
+       position: absolute;
+       left: 0;
+       top: 0;
+       opacity: 0;
+   }         
+   #btn{
+       
+       padding: 5px 10px;
+       background: #00b4fb;
+       color: #FFF;
+       border: none;
+       border-radius: 5px;
+   }         
+   #text{
+       color: red;
+   }
