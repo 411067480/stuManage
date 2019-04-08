@@ -1,7 +1,6 @@
 ﻿{{include 'admin/public/header.html'}}
 <link rel="shortcut icon" href="/upload/title_Image/icon.ico"/>
 
-
 <body>
 <div class="navbar navbar-default" id="navbar">
 	<script type="text/javascript">
@@ -53,41 +52,43 @@
 
 				<div class="page-header">
 					<h1>
-						增加社团相册
+						修改社团相册信息
 					</h1>
 				</div><!-- /.page-header -->
 
 				<!--表格-->
 
 				<div class="table-responsive">
-					<form action="{{__HOST__}}/admin/album/doAdd" method="post" class="form-horizontal" enctype="multipart/form-data" style="border:1px solid #eee;">
-						<div class="form-group">
-							<label class="col-sm-2 control-label no-padding-right" for="title">上传相片:</label>
+					<form action="{{__HOST__}}/admin/album/doEdit" method="post" class="form-horizontal" enctype="multipart/form-data" style="border:1px solid #eee;">
+						<div class="form-group"  style="height: 140px;">
+							<label class="col-sm-2 control-label no-padding-right" for="headphoto">更换相片:</label>			
 							<div class="col-sm-10">
 								<label for="fileinp" id="label">
-									<input type="button" id="btn" value="点我上传"><span id="text">　社团相片</span>
+									<input type="button" id="btn" value="点我更换"><span id="text">　社团相片</span>
 									<input type="file" name="pic" id="fileinp"/>
 								</label>
 							</div>
+							<br/>
+							<img src="{{__HOST__}}/{{list.pic}}" alt="" class="img" style="margin-left:298px;margin-top:7px;"/>
+							<br/>
 						</div>
-
 						<div class="form-group">
-							<label class="col-sm-2 control-label no-padding-right" for="pid">相片归类：</label>
+							<label class="col-sm-2 control-label no-padding-right" for="pid">所在社团：</label>
 							<div class="col-sm-10">
 								<select name="pid" id="pid">
 									{{each catelist}}
-										<option value="{{@$value._id}}">{{$value.title}}</option>
+										<option value="{{@$value._id}}" {{if list.pid==$value._id}}selected {{/if}}>{{$value.title}}</option>
 										{{each $value.list}}
-											<option value="{{@$value._id}}">{{$value.title}}</option>
+											<option value="{{@$value._id}}"   {{if list.pid==$value._id}}selected {{/if}}>　　　{{$value.title}}</option>
 										{{/each}}
 									{{/each}}
 								</select>
 							</div>
-							<!--此处我i设置默认:所在社团:选项-->
-							<input type="text" name="catename" id="catename"  value="{{catelist[0].title}}" hidden/>
+							<input type="hidden" name="catename" id="catename"  value="{{catelist[0].title}}" />
+							<input type="hidden" name="id" id="id"  value="{{@list._id}}" />
+							<input type="hidden" name="prevPage" id="prevPage"  value="{{prevPage}}" />
 						</div>
-
-
+						
 						<div class="form-group">
 							<label class="col-sm-2 control-label no-padding-right" for="rpassword"></label>
 							<div class="col-sm-10">
@@ -98,9 +99,9 @@
 				</div>
 			</div>
 		</div><!-- /.main-content -->
-
 	</div><!-- /.main-container-inner -->
 
+	
 	<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 		<i class="icon-double-angle-up icon-only bigger-110"></i>
 	</a>
@@ -111,6 +112,7 @@
 {{include 'admin/public/footer.html'}}
 
 <script>
+
 	//分类改变的时候  把分类的名称赋值给隐藏的表单域
 	var pidDom=document.getElementById('pid');
 	var catenameDom=document.getElementById('catename');
@@ -123,6 +125,7 @@
 			}
 		}
 	}
+
 </script>
 
 </body>
