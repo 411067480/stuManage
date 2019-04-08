@@ -1,0 +1,122 @@
+/************************************************ 《社团招新css样式》 ****************************************************/
+
+.right_field .first_content_recruit{
+    width: 100%;
+    height: 450px;
+    background-color: rgb(234, 239, 248);
+}
+.right_field .first_content_recruit .content_recruit{
+    background-color: rgb(255, 255, 255);
+    width: 98%;
+    height: 360px;
+    margin: 8px auto; 
+    border: 1px solid rgb(225, 225, 225);
+}
+.right_field .first_content_recruit .content_recruit .dashed{
+    width: 100%;
+    height: 3%;
+    background-color: #ffffff;
+    
+}
+.right_field .first_content_recruit .content_recruit .content_field{
+    width: 100%;
+    height: 88%;
+    background-color: #ffffff;
+}
+/* .right_field .first_content_recruit .content_recruit .pageSelector{
+    width: 100%;
+    height: 9%;
+    background-color: #ffffff;
+    border-top: 1px dashed rgb(225, 225, 225);
+} */
+.right_field .first_content_recruit .content_recruit .content_field .content{
+    width: 97%;
+    height: 26%;
+    margin: 0 auto 5px auto;
+    background-color: #ffffff;
+    border: 1px solid rgb(225, 225, 225);
+}
+
+.right_field .first_content_recruit .content_recruit .content_field .content .left_img{
+    width: 12%;
+    height:100%;
+    background-color: rgb(252, 250, 197);
+    border: 0px solid rgb(216, 212, 212);
+    float: left;
+}
+.right_field .first_content_recruit .content_recruit .content_field .content .left_img img{
+   width: 90%;
+   height: 90%;
+   margin: 4px 4px 4px 4px;
+   background-color: #ff7c7c;
+}
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content{
+    width: 88%;
+    height:100%;
+    background-color: #ffffff;
+    float: right;
+}
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content div:first-child{
+    width: 98%;
+    height:90%;
+    margin: 4px auto;
+    background-color: #ffffff;
+}
+
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content div:first-child p:first-child{
+    width: 46%;
+    height:25px;
+    float: left;
+    font-size: 13px;
+    vertical-align:middle;
+    font-family: cursive;
+    font-weight: 500;
+    background-color: #ffffff;
+    text-align: justify;        /*设置文本两端对齐*/
+    overflow: hidden;           /*设置文本溢出隐藏*/
+    text-overflow: ellipsis;    /*设置文本溢出部分以省略号...表示*/
+    white-space: nowrap;        /*设置文本溢出不换行*/
+}
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content div:first-child .p{
+    line-height: 16px;
+    text-align: justify;        /*设置文本两端对齐*/
+    font-size: 12px;
+    color: #b3b3b3;
+}
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content div:first-child div{
+    width: 54%;
+    height:25px;
+    float: right;
+    background-color: #ffffff;
+}
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content div:first-child div span{
+    background-color: #ffffff;
+}
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content div:first-child div span h6{
+    font-size: 13px;
+}
+
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content div:first-child div span:first-child{
+    width: 100px;
+    height:100%;
+    float: left;
+    font-family: cursive;
+    margin-left: 13px;
+}
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content div:first-child div span:nth-child(2){
+    width:60px;
+    height:100%; 
+    float: left;
+    font-family: cursive;
+    margin-left: 9px;
+}
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content div:first-child div span:nth-child(3){
+    width: 140.8px;
+    height:100%; 
+    float: left;
+    font-family: cursive;
+    margin-left: 10px;
+}
+.right_field .first_content_recruit .content_recruit .content_field .content .right_content div:first-child div span h6{
+   text-align: center;
+}

@@ -1,0 +1,214 @@
+
+.main{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+.content_center_wrapper{
+    height: 800px;
+}
+.content_center{
+    height: 800px;
+    width: 1140px;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+}
+
+.left_field{
+    height: 800px;
+    width: 374px;
+    margin:0px 6px 0px 0px;
+    background-color: rgb(255, 255, 255);
+    float: left;
+}
+.right_field{
+    height: 800px;
+    width: 760px;
+    margin:auto 0px 0px 0px;
+    float: right;
+    background-color: rgb(255, 255, 255);
+}
+
+.left_field .first_content{
+    width: 100%;
+    height: 345px;
+    background-color: rgb(234, 239, 248);
+}
+.left_field .first_content .content{
+    background-color: rgb(255, 255, 255);
+    width: 95%;
+    height: 255px;
+    margin: 8px auto; 
+    border: 1px solid rgb(225, 225, 225);
+}
+
+.left_field .first_content .content .title{
+    width:100%;
+    height: 30px;
+    padding-bottom: 6px;
+    background-color: #000000;
+    margin-top: 0px;
+    text-indent: 1em;
+    font-weight: 600;
+    color: #ffffff;
+    
+}
+.left_field .first_content .content .simpleC{
+    width: 315px;
+    height: 209px;
+    padding: 10px 20px 0px 20px;
+    position: absolute;
+    background-color: #ffffff;
+    font-style: inherit;
+    font-size: 16px;
+    line-height: 26px;    /*设置段落行间距为20px*/
+    text-align: justify;  /*设置文字两端对齐*/
+    text-indent: 2em;     /*设置文本首航缩进两个字符*/
+}
+
+.left_field .second_content{
+    width: 100%;
+    height: 445px;
+    margin-top: 10px;
+    background-color: rgb(234, 239, 248);
+}
+
+.left_field .second_content .content{
+    background-color: rgb(255, 255, 255);
+    width: 95%;
+    height: 355px;
+    margin: 8px auto; 
+    border: 1px solid rgb(225, 225, 225);
+}
+.right_field .first_content{
+    width: 100%;
+    height: 345px;
+    background-color: rgb(234, 239, 248);
+}
+.right_field .first_content .content{
+    background-color: rgb(255, 255, 255);
+    width: 98%;
+    height: 255px;
+    margin: 8px auto; 
+    border: 1px solid rgb(225, 225, 225);
+}
+.right_field .first_content .content .left_content{
+   width: 40%;
+   height: 100%;
+   background-color: #ffffff;
+   float: left;
+}
+.right_field .first_content .content .left_content .img{
+    width: 278px;
+    height: 72%;
+    margin: 10px auto;
+    background: #e6ff05;
+ }
+.right_field .first_content .content .right_content{
+    width: 60%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    float: right;
+}
+.right_field .first_content .content .right_content .activeNews{
+    width: 438px;
+    height: 92%;
+    margin: 6px 20px auto auto;
+    background: #f7f095;
+}
+.right_field .first_content .content .right_content .activeNews div:first-child{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    float: left;
+}
+
+
+.right_field .first_content .content .right_content .activeNews div:first-child ul li p{
+    width: 270px;
+    padding-left: 0px;
+    padding-right: 6px;
+    font-size: 15px;
+    font-family: cursive;
+    text-align: justify;
+    overflow:hidden;   /*超出的文本隐藏*/
+    text-overflow: ellipsis;  /*溢出的文本省略号...表示*/
+    white-space:nowrap;  /*溢出不换行*/
+    color: #535353;
+}
+.right_field .first_content .content .right_content .activeNews div:first-child ul li span{
+    width: 148px;
+    margin: -29px 0px 0px 0px;
+    text-align: center;
+    padding: 0 0 0 0px;
+    font-size: 15px;
+    font-family: cursive;
+    color: #535353;
+    float: right;
+    
+}
+.right_field .first_content .content .right_content .activeNews div:first-child ul li div{
+    margin: 0px auto 0px auto;
+    width:98%;
+    padding: 0;
+    border-bottom: 1px dashed rgb(135, 135, 135);
+}
+
+
+.right_field .first_content_recruit{
+    width: 100%;
+    height: 425px;
+    background-color: rgb(234, 239, 248);
+}
+.right_field .first_content_recruit .content_recruit{
+    background-color: rgb(255, 255, 255);
+    width: 98%;
+    height: 335px;
+    margin: 8px auto; 
+    border: 1px solid rgb(225, 225, 225);
+}
+
+.topSpan{
+    /*从上到下渐变背景效果*/
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(202, 202, 202)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(rgb(255, 255, 255), rgb(202, 202, 202)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(rgb(255, 255, 255), rgb(202, 202, 202)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(rgb(255, 255, 255), rgb(202, 202, 202)); /* 标准的语法 */
+    width: 372;
+    height: 35px; 
+    border:1px solid rgb(225, 225, 225);
+}
+
+.topSpan span{
+    float: right;
+    color: rgb(132, 131, 131);
+    font-size: 12px;
+    padding-top: 5px;
+    padding-right: 10px;
+}
+/*设置h2字体大小以及其他属性*/
+.tab-h2{
+    color:#ff0909;
+    letter-spacing: 2px;/*字符间距*/
+    text-align:left;
+    font-weight: bolder;
+    float: left;
+}
+
+/* 中等屏幕（桌面显示器，大于等于992px） */
+@media (min-width: 992px) {
+    .tab-h2 {
+    font-size:18px;
+    }
+}
+/* 小屏幕（平板，大于等于768px） */
+
+@media (min-width: 768px) {
+    .tab-h2 {  
+    font-size:18px;  
+    }  
+}  
+
+
+

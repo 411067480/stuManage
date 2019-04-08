@@ -1,0 +1,112 @@
+body{
+    margin: 0 auto;
+}
+.backgroundC{
+    background: #424242;
+}
+.content{
+    /* background-color: rgb(255, 255, 255); */
+    width: 600px;
+    height: 430px;
+    margin: 200px auto;
+    animation: shake 0.8s linear;
+}
+@keyframes shake {
+    0%{
+        transform: scale(0);
+    }
+    30%{
+        transform: scale(1.2);
+    }
+    40%{
+        transform: scale(0.8);
+    }
+    50%{
+        transform: scale(1.15);
+    }
+    60%{
+        transform: scale(0.9);
+    }
+    70%{
+        transform: scale(1.1);
+    }
+    80%{
+        transform: scale(0.95);
+    }
+    90%{
+        transform: scale(1.05);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.content form{
+    display: flex;
+    flex-direction: column;    /*flex-direction属性决定主轴的方向（即项目的排列方向）,column为自上而下的垂直主轴*/
+    flex-wrap:wrap;
+    justify-content: flex-start;    /*justify-content属性定义了项目在主轴上的对齐方式,flex-start为交叉轴开始位置（顶部）*/
+    /* background-color: rgb(250, 176, 176);  */
+    background-color: #ffffff;
+    border-radius: 20px;
+    border:5px solid rgb(240, 164, 164);
+    /* background: -webkit-linear-gradient(left top, rgb(255, 194, 194) , rgb(251, 253, 150)); 
+    background: -o-linear-gradient(bottom right, rgb(255, 194, 194), rgb(251, 253, 150)); 
+    background: -moz-linear-gradient(bottom right, rgb(255, 194, 194), rgb(251, 253, 150)); 
+    background: linear-gradient(to bottom right, rgb(255, 194, 194), rgb(251, 253, 150));  */
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    /* background:linear-gradient(-135deg, rgb(240, 164, 164) 50px, #e6e3c7 0); */
+    /* background:linear-gradient(-135deg, transparent 15px, #eef56e 0); */
+}
+.content form h1{
+    margin-top: 0px;
+    padding-top: 35px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    font-size: 50px;
+    font-weight: bolder;
+    background-image: -webkit-linear-gradient(100deg,#6d78ff,#00ffb8); /*设置文字背景颜色为渐变色*/
+    -webkit-text-fill-color: transparent; /*设置文字的颜色为透明的*/
+    -webkit-background-clip: text;  /*设置文字裁剪背景*/
+}
+.content form .stu_ID{
+    width: 80%;
+    margin:0px auto;
+    border-color: rgb(225, 225, 225);
+}
+
+.content form .password{
+    width: 80%;
+    margin:0px auto;
+    border-color: rgb(225, 225, 225);
+}
+
+
+.content form .submitBtn{
+    width: 80%;
+    margin:20px auto 0px auto;
+}
+.content form .submitBtn .set{
+    width: 100%;
+    margin:0px auto;
+    font-size: 20px;
+    color: rgb(104, 142, 255);
+    border-radius: 10px 10px 10px 10px;
+    opacity: 1.0;
+    border: 0px;
+}
+.content form .submitBtn .set:active{
+    transform:scale(0.90);
+    -ms-transform:rotate(0.90); 	/* IE 9 */
+    -moz-transform:rotate(0.90); 	/* Firefox */
+    -webkit-transform:rotate(0.90); /* Safari 和 Chrome */
+    -o-transform:rotate(0.90); 	/* Opera */
+}
+.content form .submitBtn .set:visited{
+    transform:scale(1);
+    -ms-transform:rotate(1); 	/* IE 9 */
+    -moz-transform:rotate(1); 	/* Firefox */
+    -webkit-transform:rotate(1); /* Safari 和 Chrome */
+    -o-transform:rotate(1); 	/* Opera */
+}

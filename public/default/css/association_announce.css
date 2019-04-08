@@ -1,0 +1,69 @@
+
+
+.right_field .first_content_association_nounce{
+    width: 100%;
+    height: 425px;
+    background-color: rgb(234, 239, 248);
+}
+.right_field .first_content_association_nounce .content_association_nounce{
+    background-color: rgb(255, 255, 255);
+    width: 98%;
+    height: 335px;
+    margin: 8px auto; 
+    border: 1px solid rgb(225, 225, 225);
+}
+
+.right_field .first_content_association_nounce .content_association_nounce .blank{
+    width: 100%;
+    height: 10px;
+    background: #ffffff;
+}
+.right_field .first_content_association_nounce .content_association_nounce .content{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 130px;
+    margin: 0px auto; 
+   
+}
+
+.right_field .first_content_association_nounce .content_association_nounce .content .title{
+    width: 740px;
+    height: 30px;
+    padding-left: 4px;
+    padding-bottom: 6px;
+    padding-top: 5px;
+    background-color: #ffffff;
+    margin-top: 0px;
+    text-indent: 1em;
+    font-size: 16px;
+    font-weight: 600;
+    color: #535353;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+    overflow:hidden;   /*超出的文本隐藏*/
+    text-overflow: ellipsis;  /*溢出的文本省略号...表示*/
+    white-space:nowrap;  /*溢出不换行*/
+}
+.right_field .first_content_association_nounce .content_association_nounce .content span{
+    float: right;
+    margin-right: 20px;
+}
+.right_field .first_content_association_nounce .content_association_nounce .content .simpleC{
+    font-size: 16px;
+    padding:0px 20px 0px 20px;
+    text-align: justify;  /*设置文本两端对齐*/
+    line-height: 24px;    /*设置文本的行高*/
+    color: #858282;
+}
+.right_field .first_content_association_nounce .content_association_nounce .content .dashed{
+    margin: 15px auto 0px auto;
+    width:702px;
+    border-bottom: 1px dashed rgb(135, 135, 135);
+    
+}
+/* .right_field .first_content_association_nounce .content_association_nounce .pagination{
+    width: 100%;
+    height: 50px;
+    margin-right: 500px;
+    background-color: #ff4a4a;
+} */
