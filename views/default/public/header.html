@@ -1,0 +1,36 @@
+
+<!--黑色分割线-->
+
+<div class="nav-top-line"></div> 
+
+<!--导航栏内容：logo + 分栏选项卡-->
+
+<div id="header-wrapper">
+    <div class="header-inner">
+        <div class="logo">
+            <h1>
+                <a href="#" title="欢迎来到学院学生社团汇"></a>
+            </h1>
+        </div>
+        <div class="nav" >
+            <ul class="clear">
+                {{each nav}}
+                <li>
+                    <a href="{{$value.url}}" {{if pathname==$value.url}} class="index" {{/if}} title="{{$value.title}}">{{$value.title}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+</div>
+<!-- jquery -->
+<style>
+    
+</style>
+<script src='{{__HOST__}}/admin/js/jquery-2.0.3.min.js' type="text/javascript">
+ 
+
+
+</script>
+

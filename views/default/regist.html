@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会员注册入口</title>
+    <!--网页图标---icon_---->
+	<link rel="shortcut icon" href="upload/title_Image/icon.ico"/>
+    <link rel="stylesheet" type="text/css" href="{{__HOST__}}/default/css/regist.css" />
+    <!-- basic styles -->
+    <link href="{{__HOST__}}/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{__HOST__}}/admin/css/font-awesome.min.css" />
+    <!-- fonts -->
+    <link rel="stylesheet" href="{{__HOST__}}/admin/css/ace.min.css" />
+    <link rel="stylesheet" href="{{__HOST__}}/admin/css/ace-rtl.min.css" />
+    <!-- jquery -->
+    <script src='{{__HOST__}}/admin/js/jquery-2.0.3.min.js'></script>
+</head>
+<body class="backgroundC">
+    <div class="content">
+        <form action="{{__HOST__}}/regist/doRegist" method="post">
+            <h1>Regist</h1>
+            <input class='stu_ID form-control' type="text" name="stu_ID" id="stu_ID" maxlength="10" minlength="10" placeholder="学号"/>
+            <br>
+            <input class='username form-control' type="text" name="username" id="username" maxlength="4" minlength="2" placeholder="姓名"/>
+            <br>
+            <input class='telphone form-control' type="text" name="telphone" id="telphone" placeholder="手机"  minlength="11" maxlength="11"/>
+            <br>
+            <input class='password form-control' type="password" name="password" id="password" placeholder="设置密码" minlength="6" maxlength="16"/>
+            <br>
+            <input class='rpassword form-control' type="password" name="rpassword" id="rpassword" placeholder="确认密码" minlength="6" maxlength="16"/>
+            <br>
+            <div class="first">
+                <select class='senior' name="senior" id="senior">
+                    <option value="2019级">2019级</option>
+                    <option value="2018级">2018级</option>
+                    <option value="2017级">2017级</option>
+                    <option value="2016级">2016级</option>
+                    <option value="2015级">2015级</option>
+                </select>
+                <select class='department' name="department" id="department">
+                    <option value="游戏系">游戏系</option>
+                    <option value="网络系">网络系</option>
+                    <option value="国贸系">国贸系</option>
+                    <option value="外语系">外语系</option>
+                    <option value="软件系">软件系</option>
+                    <option value="管理系">管理系</option>
+                    <option value="电子系">电子系</option>
+                    <option value="财会系">财会系</option>
+                    <option value="计算机系">计算机系</option>
+                    <option value="数码媒体系">数码媒体系</option>
+                </select>
+            </div>
+            <br>
+            <div class="second">
+                <input class='profession form-control' type="text" name="profession" id="profession" placeholder="专业名称">
+                <select class='whichclass' name="whichclass" id="whichclass">
+                    <option value="1班">1班</option>
+                    <option value="2班">2班</option>
+                    <option value="3班">3班</option>
+                    <option value="4班">4班</option>
+                    <option value="5班">5班</option>
+                    <option value="6班">6班</option>
+                    <option value="7班">7班</option>
+                    <option value="8班">8班</option>
+                    <option value="9班">9班</option>
+                    <option value="10班">10班</option>
+                </select>
+            </div>
+            <br>
+           
+            <select class='catename' name="pid" id="pid">
+                {{each catelist}}
+                <option value="{{@$value._id}}">{{$value.associationName}}</option>
+                {{/each}}
+            </select>
+
+            <!--此处我i设置默认:所在社团:选项-->
+            <input type="text" name="associationName" id="associationName"  value="{{catelist[0].associationName}}" hidden />
+            <br>
+
+            <select class='sex' name="sex" id="sex">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+            <br>
+            
+            <div class="submitBtn">
+                <button type="submit" class="set btn btn-info">注册</button>
+            </div>
+
+            <div class="submitBtn">
+                <a href="{{__HOST__}}/login">
+                <button type="button" class="set btn btn-warning" >已有账号，去登录</button>
+                </a>
+            </div>
+        </form>
+        
+    </div>
+</body>
+<script>
+//分类改变的时候  把分类的名称赋值给隐藏的表单域
+var pidDom=document.getElementById('pid');
+var associationName=document.getElementById('associationName');
+var options=pidDom.getElementsByTagName('option');
+pidDom.onchange=function(){
+    //分类改变的时候 获取选中的值 赋值给  associationName
+    for(var i=0;i<options.length;i++){
+        if(options[i].selected){
+            associationName.value=options[i].innerHTML.trim();
+        }
+    }
+}
+
+
+</script>
+</html>
