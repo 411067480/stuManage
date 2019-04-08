@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--网页图标---icon_---->
+	<link rel="shortcut icon" href="upload/title_Image/icon.ico"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会员登录入口</title>
+    <link rel="stylesheet" type="text/css" href="{{__HOST__}}/default/css/login.css" />
+    <!-- basic styles -->
+    <link href="{{__HOST__}}/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{__HOST__}}/admin/css/font-awesome.min.css" />
+    <!-- fonts -->
+    <link rel="stylesheet" href="{{__HOST__}}/admin/css/ace.min.css" />
+    <link rel="stylesheet" href="{{__HOST__}}/admin/css/ace-rtl.min.css" />
+    <!-- jquery -->
+    <script src='{{__HOST__}}/admin/js/jquery-2.0.3.min.js'></script>
+</head>
+<body class="backgroundC">
+    <div class="content">
+        <form action="{{__HOST__}}/login/doLogin" method="post">
+            <h1>Login</h1>
+            <input class='stu_ID form-control' type="text" name="stu_ID" id="stu_ID"  placeholder="请输入学号"/>
+            <br>
+            <input class='password form-control' type="password" name="password" id="password" placeholder="请输入密码" minlength="6" maxlength="16"/>
+            <br>
+            <div class="submitBtn">
+                <button type="submit" class="set btn btn-warning">登录</button>
+            </div>
+            <div class="submitBtn">
+                <a href="{{__HOST__}}/regist">
+                <button type="button" class="set btn btn-info" >未有账号，去注册</button>
+                </a>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+// $(document).ready(function(){
+//     var stu_ID = $('#stu_ID').val();
+//     var pass = $('#password').val();
+//     if(stu_ID==''||stu_ID==undefined||stu_ID==null||(stu_ID.length<10||stu_ID.length>10)){
+//         alert('学号错误');
+//     }else{
+//         $(location).attr('href','http://127.0.0.1:8020/');
+//     }
+// })
+</script>
+</html>

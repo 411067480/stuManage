@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>社团公告</title>
+<title>heder_nav-menu</title>
+<!--网页图标---icon_---->
+<link rel="shortcut icon" href="upload/title_Image/icon.ico"/>
+<link rel="stylesheet" type="text/css" href="default/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="default/css/heder_nav-menu.css"/>
+<link rel="stylesheet" type="text/css" href="default/css/successful_case.css"/>
+<link href="video/video-js.css" rel="stylesheet">
+    <script src="video/ie8/videojs-ie8.min.js"></script>
+    <script src="video/video.js"></script>
+</head>
+<body>
+    <!--导航栏-->
+	<!--黑色分割线-->
+	<div class="nav-top-line"></div> 
+	<!--导航栏内容：logo + 分栏选项卡-->
+	<div id="header-wrapper">
+		<div class="header-inner">
+			<div class="logo">
+				<h1>
+					<a href="#" title="欢迎来到学院学生社团汇"></a>
+				</h1>
+			</div>
+			<div class="nav" >
+				<ul class="clear">
+					{{each nav}}
+					<li>
+						<a href="{{$value.navUrl}}"{{if pathname==$value.navUrl}} class="index" {{/if}} title="{{$value.navTitle}}">{{$value.navTitle}}</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+			{{each dataG}}
+				{{if !dataG.userinfo}}
+				<div class="loginStyle" >
+					<a href="{{__HOST__}}/login">
+						<button type="button" class="loginBtn">登录</button>
+					</a>
+				</div>
+				{{/if}}
+				{{if dataG.prevPage&&dataG.userinfo.value!=""}}
+					<div class="loginStyle" >
+						<a href="{{__HOST__}}/login">
+							<button type="button" hidden>登录</button>
+						</a>
+					</div>
+				{{/if}}
+			{{/each}}
+		</div>
+	</div>
+<!--
+        controls:表示控制条;
+        preload:表示预加载;
+        poster:表示最初显示的图片;注意前提是：需要设置视频起始的宽高,否则无法查看起始是设置的封面图片
+        data-set:支持用json来设置一些参数;
+        track：指的是字幕;
+        source：指的是播放的视频源;
+        style="margin-top:200px;margin-left:300px;width: 40%;height: 30%"
+        设置：----自适应宽高,若去掉style，在/<video></video>标签内添加了class='vjs-fluid'样式之后，视频将占满全屏。
+-->
+    <div id="instructions">
+        <video id="my_video_1"  class="video-js vjs-default-skin vjs-fluid" width="640px" height="360px" controls preload="none" poster='upload/1543938480934.jpg' data-setup='{ "aspectRatio":"640:360", "playbackRates": [1, 1.5, 2] }'>
+            {{each list}}
+            <!-- <source src="video/mp4/010103.mp4" type='video/mp4' /> -->
+            <source src="{{$value.myfile}}" type='video/mp4' />
+            {{/each}}
+            <!-- <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+            <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg"> -->
+            <p class="vjs-no-js">播放视频需要使用JavaScript，推荐使用<a href="http://videojs.com/html5-video-support/" target="_blank">支持HTML5</a>的浏览器访问</p>
+        </video>
+    </div>
+    
+</body>
+
+<style>
+  #instructions { max-width: 640px; text-align: left; margin: 80px auto; }
+  #instructions textarea { width: 100%; height: 100px; }
+  
+  /* Show the controls (hidden at the start by default) */
+  .video-js .vjs-control-bar { 
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  /* Make the demo a little prettier */
+  body {
+    margin-top: 0px;
+    background: #222;
+    text-align: center; 
+    color: #aaa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: radial-gradient(#0173ff, rgb(0, 170, 255) );
+  }
+
+  a, a:hover, a:visited { color: #76DAFF; }
+</style>
+</html>
