@@ -1,6 +1,4 @@
-﻿
-<!DOCTYPE html>
-<html lang="en">
+﻿{{include 'admin/public/header.html'}}
 <head>
 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
@@ -31,10 +29,7 @@
 		margin-right: 5px;
 	}
 </style>
-
 </head>
-
-{{include 'admin/public/header.html'}}
 <body>
 	<div class="navbar navbar-default" id="navbar">
 		<script type="text/javascript">
@@ -86,49 +81,51 @@
 
 				<div class="page-header">
 					<h1>
-					增加社联公告
+					编辑社联公告
 					</h1>
 				</div><!-- /.page-header -->
 
 				<div class="table-responsive">
-					<form action="{{__HOST__}}/admin/association_announce/doAdd" method="post" class="form-horizontal" style="border:1px solid #eee;">
-						
+					<form action="{{__HOST__}}/admin/association_announce/doEdit" method="post" class="form-horizontal" style="border:1px solid #eee;">
 						<ul id="myTab" class="nav nav-tabs" style="height:44px;">
 							<li class="active">
 								<a href="#basic" data-toggle="tab">
-									最新公告
+								公告内容设置
 								</a>
 							</li>
 						</ul>
 						<div id="myTabContent" class="tab-content" style="border: none;">
+							<input type="hidden" name="id" id="id" value="{{@list._id}}"/><!--隐藏的表单域:获取传值_id-->
 							<!--社团基本信息设置-->
 							<div class="tab-pane fade in active" id="basic" >
-									
+								
 								
 								<div class="form-group">
-									<label class="col-sm-2 control-label no-padding-right" for="aAtitle">公告标题:</label>
-									<div class="col-sm-10">
-										<input type="text" id="aAtitle"  name="aAtitle" class="col-xs-10 col-sm-5" />
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="aAtitle">公告标题:</label>
+										<div class="col-sm-10">
+											<input type="text" id="aAtitle"  name="aAtitle" class="col-xs-10 col-sm-5" value="{{list.aAtitle}}"/>
+										</div>
 									</div>
 								</div>
-					
+
 								<div class="form-group">
-									<label class="col-sm-2 control-label no-padding-right">是否设置为最新：</label>
+									<label class="col-sm-2 control-label no-padding-right">是否设置为最新: </label>
 									<div class="col-sm-10">
-										<label for="status1">是：</label><input type="radio" name="aAstatus"  id="status1" value="1" checked />
+										<label for="status1">是：</label><input type="radio" name="aAstatus"  id="status1" value="1" {{if list.aAstatus==1}}checked {{/if}}/>
 										&nbsp;
-										<label for="status2">否:</label><input type="radio" name="aAstatus" id="status2" value="0" />
+										<label for="status2">否:</label><input type="radio" name="aAstatus" id="status2" value="0" {{if list.aAstatus==0}}checked {{/if}}/>
 									</div>
 								</div>
 								<div class="form-group" style="height:400px;">
 									<label class="col-sm-2 control-label no-padding-right">公告内容:</label>
 									<div class="col-sm-10">
-											<textarea name="content" id="content" cols="63" rows="10" style="line-height:30px;text-align: justify;text-indent:2em;"></textarea>
+										<textarea name="content" id="content" cols="63" rows="10" style="line-height:30px;text-align: justify;text-indent:2em;">{{list.content}}</textarea>
 									</div>
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label class="col-sm-2 control-label no-padding-right"></label>
 							<div class="col-sm-10">
@@ -154,6 +151,7 @@
 
 <script type="text/javascript">
 	jQuery(function($) {
+
 	$('table th input:checkbox').on('click' , function(){
 		var that = this;
 		$(this).closest('table').find('tr > td:first-child input:checkbox').each(function(){
@@ -161,6 +159,7 @@
 			$(this).closest('tr').toggleClass('selected');
 		});
 	});
+
 	$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
 	function tooltip_placement(context, source) {
 	var $source = $(source);
@@ -176,9 +175,7 @@
 	}
 	})
 
-	var ue = UE.getEditor('editor');
 </script>
-	
 </body>
 <script>
 	Calendar.create({
