@@ -1,0 +1,5 @@
+
+ 运行项目之前，请现在终端执行命令cnpm install
+一键安装package.json文件中的各类模块依赖。
+
+启动命令：nodemon app.js
