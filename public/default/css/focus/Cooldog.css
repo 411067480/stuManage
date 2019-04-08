@@ -1,1 +1,229 @@
+* {
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.Cooldog_container {
+    width: 100%;
+    height: 420px;
+    /* margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto; */
+    margin: 18px auto 10px auto;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff ;
+    z-index: 2;
+}
+
+.Cooldog_container .Cooldog_content {
+    position: absolute;
+    width:1220px;
+    height: 420px;
+    top: 0px;
+    left: 50%;
+    margin-left: -610px;
+}
+
+.Cooldog_container .Cooldog_content li {
+    position: absolute;
+    margin-top: 0px;
+    left: 0;
+    width: 1220px;
+    height: 410px;
+    transition: all 0.3s ease;
+}
+
+.Cooldog_container .Cooldog_content li img{
+    border: 0px solid #ff7a7a;
+    box-shadow: 8px 8px 5px rgba(117, 106, 106,0.6);
+}
+
+.Cooldog_container .Cooldog_content li img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.Cooldog_container .btn_left, .Cooldog_container .btn_right {
+    display: none;
+    width: 126px;
+    height: 126px;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+    position: absolute;
+    top: 115px;
+    z-index: 50;
+    color: rgb(255, 255, 255);
+    line-height: 125px;
+    background-color:  rgb(250, 229, 134);
+    opacity: 0.6;   
+
+}
+.Cooldog_container .btn_left:hover, .Cooldog_container .btn_right:hover {
+    display: none;
+    width: 126px;
+    height: 126px;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+    position: absolute;
+    top: 115px;
+    z-index: 50;
+    color: rgb(255, 255, 255);
+    line-height: 125px;
+    background-color:  rgb(255, 187, 0);
+    opacity: 0.6;   
+    /*鼠标滑过，定义颜色渐变动画*/
+    animation:myfirst 0s;
+	-webkit-animation:myfirst 0s; /* Safari and Chrome */
+}
+
+@keyframes myfirst
+{
+	from {background-color:rgb(250, 229, 134);}
+	to {background-color:rgb(255, 187, 0);}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+	from {background-color:rgb(250, 229, 134);}
+	to {background-color:rgb(255, 187, 0);}
+}
+
+.Cooldog_container .btn_left {
+    text-align: left;
+    left: 0;
+}
+
+.Cooldog_container .btn_right {
+    text-align: right;
+    right: 0;
+}
+
+.Cooldog_container .btn_left i {
+    font-size: 65px;
+    margin-left: 30px;
+}
+
+.Cooldog_container .btn_right i {
+    font-size: 65px;
+    margin-right: 30px;
+}
+
+.Cooldog_container .btn_close {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    display: none;
+    line-height: 20px;
+    text-align: center;
+    background-color: #BCB9B9;
+    color: #fff;
+}
+
+.Cooldog_container .btn_close i {
+    font-size: 18px;
+}
+
+.Cooldog_container .buttons {
+    width: 370px;
+    height: 5px;
+    line-height: 5px;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -185px;
+    z-index: 80;
+}
+
+.Cooldog_container .buttons a {
+    float: left;
+    width: 40px;
+    height: 5px;
+    background-color: #898F94;
+    margin-right: 15px;
+}
+
+.Cooldog_container .buttons a.color {
+    background-color: #fdff7a;
+}
+
+.Cooldog_container .buttons a:last-child {
+    margin-right: 0;
+}
+/*一4为中心的搭配：3-5 2-6 1-7*/       /*    1-2-3---4---5-6-7*/
+.p1 {
+    transform: translate3d(-587px, 0, 0) scale(0.61);
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.p2 {
+    transform: translate3d(-285px, 0, 0) scale(0.71);
+    transform-origin: 0 50%;
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.p3 {
+    transform: translate3d(-150px, 0, 0) scale(0.81);
+    transform-origin: 0 50%;
+    opacity: 0.8;
+    z-index: 3;
+}
+
+.p4 {
+    transform: translate3d(0px, 0, 0) scale(1);
+    opacity: 1;
+    z-index: 4;
+}
+
+.p5 {
+    transform: translate3d(385px, 0, 0) scale(0.81);
+    transform-origin: 0 50%;
+    opacity: 0.8;
+    z-index: 3;
+}
+
+.p6 {
+    transform: translate3d(635px, 0, 0) scale(0.71);
+    transform-origin: 0 50%;
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.p7 {
+    transform: translate3d(825px, 0, 0) scale(0.61);
+    transform-origin: 0 50%;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+
+
+
 
