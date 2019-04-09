@@ -72,28 +72,32 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label no-padding-right" for="manageName">用户名称:</label>
 							<div class="col-sm-10">
-								<input type="text" id="manageName"  name="manageName" class="col-xs-10 col-sm-5" />
+								<input type="text" id="manageName"  name="manageName" class="col-xs-10 col-sm-5" style="float:left;margin-right: 30px;"/>
+								<div id="errortipsMN"></div>
 							</div>
+						
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-2 control-label no-padding-right" for="password">密　　码:</label>
 							<div class="col-sm-10">
-								<input type="password" id="password"  name="password" class="col-xs-10 col-sm-5" />
+								<input type="password" id="password"  name="password" class="col-xs-10 col-sm-5" style="float:left;margin-right: 30px;"/>
+								<div id="errortipsP"></div>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-2 control-label no-padding-right" for="rpassword">确认密码:</label>
 							<div class="col-sm-10">
-								<input type="password" id="rpassword"  name="rpassword" class="col-xs-10 col-sm-5" />
+								<input type="password" id="rpassword"  name="rpassword" class="col-xs-10 col-sm-5" style="float:left;margin-right: 30px;"/>
+								<div id="errortipsRp"></div>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-2 control-label no-padding-right" for="rpassword"></label>
 							<div class="col-sm-10">
-								<button type="submit" class="btn btn-primary">提交</button>
+								<button type="submit" class="btn btn-primary" id="submitBtn">提交</button>
 							</div>
 						</div>
 					</form>
@@ -107,11 +111,91 @@
 	</a>
 </div><!-- /.main-container -->
 
-
-
 {{include 'admin/public/footer.html'}}
-
-
 </body>
+ <!-- jquery -->
+ <script src='{{__HOST__}}/admin/js/jquery-2.0.3.min.js'></script>
+ <script>
+	 $(document).ready(function(){
+		 $('#submitBtn').click(function(){
+			if($('#manageName').val()==null||$('#manageName').val()==''){
+				if($('#password').val()==null||$('#password').val()==''){
+					if($('#rpassword').val()==null||$('#rpassword').val()==''){
+						$('#manageName').focus();
+						$('#errortipsMN').html('<span>用户名不能为空</span>').css({'color':'red','margin-top':'4px'});
+						$('#errortipsP').html('<span>请输入密码</span>').css({'color':'red','margin-top':'4px'});
+						$('#errortipsRp').html('<span>请确认密码</span>').css({'color':'red','margin-top':'4px'});
+						return false;
+					}else{
+						$('#manageName').focus();
+						$('#errortipsMN').html('<span>用户名不能为空</span>').css({'color':'red','margin-top':'4px'});
+						$('#errortipsP').html('<span>请输入密码</span>').css({'color':'red','margin-top':'4px'});
+						$('#errortipsRp').html('');
+						return false;
+					}
+				}else {
+					if($('#password').val()===$('#rpassword').val()){
+						$('#manageName').focus();
+						$('#errortipsMN').html('<span>用户名不能为空</span>').css({'color':'red','margin-top':'4px'});
+						$('#errortipsP').html('<span>密码一致</span>').css({'color':'green','margin-top':'4px'});
+						$('#errortipsRp').html('<span>密码一致</span>').css({'color':'green','margin-top':'4px'});
+						return false;
+					}else{
+						//第一种：密码不一致：用户名为空
+						if($('#manageName').val()==null||$('#manageName').val()==''){
+							$('#rpassword').focus();
+							$('#errortipsMN').html('<span>用户名不能为空</span>').css({'color':'red','margin-top':'4px'});
+							$('#errortipsP').html('<span>密码不一致</span>').css({'color':'red','margin-top':'4px'});
+							$('#errortipsRp').html('<span>密码不一致</span>').css({'color':'red','margin-top':'4px'});
+							return false;
+						}else{//第二种：密码不一致：用户名存在(此时密码已经不为空)
+							if($('#rpassword').val()==null||$('#rpassword').val()==''){
+								$('#rpassword').focus();
+								$('#errortipsRp').html('<span>请确认密码</span>').css({'color':'red','margin-top':'4px'});
+							}else{
+								$('#rpassword').focus();
+								$('#errortipsP').html('<span>密码不一致</span>').css({'color':'red','margin-top':'4px'});
+								$('#errortipsRp').html('<span>密码不一致</span>').css({'color':'red','margin-top':'4px'});
+								$('#errortipsMN').html('');
+								return false;
+							}	
+						}
+					}
+				}
+			}else{  //如果用户名存在
+				if($('#password').val()==null||$('#password').val()==''){
+					if($('#rpassword').val()==null||$('#rpassword').val()==''){
+						$('#password').focus();
+						$('#errortipsP').html('<span>请输入密码</span>').css({'color':'red','margin-top':'4px'});
+						$('#errortipsRp').html('<span>请确认密码</span>').css({'color':'red','margin-top':'4px'});
+						$('#errortipsMN').html('');
+						return false;
+					}else{
+						$('#password').focus();
+						$('#errortipsP').html('<span>请输入密码</span>').css({'color':'red','margin-top':'4px'});
+						$('#errortipsRp').html('');
+						return false;
+					}
+				}else{
+					if($('#password').val()===$('#rpassword').val()){
+						$('#password').focus();
+						$('#errortipsP').html('<span>密码一致</span>').css({'color':'green','margin-top':'4px'});
+						$('#errortipsRp').html('<span>密码一致</span>').css({'color':'green','margin-top':'4px'});
+						$('#errortipsMN').html('');
+						//用户存在。密码一致，点击-- 提交 --按钮即可成功添加
+					}else if($('#password').val()!=$('#rpassword').val()){
+						$('#errortipsP').html('<span>密码不一致</span>').css({'color':'green','margin-top':'4px'});
+						$('#errortipsRp').html('<span>密码不一致</span>').css({'color':'green','margin-top':'4px'});
+						$('#errortipsMN').html('');
+						return false;
+					}
+				}
+			
+				
+			}
+		 })
+		
+	 })
+ </script>
 </html>
 

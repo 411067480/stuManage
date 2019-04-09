@@ -41,7 +41,6 @@ router.use(async (ctx,next)=>{
 var index=require('./admin/index.js');
 var login=require('./admin/login.js');
 var user=require('./admin/user.js');
-var album=require('./admin/album.js');
 var manage=require('./admin/manage.js');
 var associationcate=require('./admin/associationcate.js');
 var association_announce=require('./admin/association_announce.js');
@@ -60,7 +59,6 @@ router.use(index);
 router.use('/login',login);
 router.use('/user',user);
 router.use('/manage',manage);
-router.use('/album',album);
 router.use('/associationcate',associationcate);
 router.use('/acivity',acivity);
 router.use('/recruit',recruit);
