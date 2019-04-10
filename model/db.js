@@ -21,7 +21,6 @@ class Db{
         }
         return  Db.instance;
     }
-
     constructor(){
 
         this.dbClient=''; /*属性 放db对象*/

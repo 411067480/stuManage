@@ -56,26 +56,23 @@ router.use(async (ctx,next)=>{
 
 
 var index=require('./default/index.js');
-var unitedHouses_announce=require('./default/unitedHouses_announce.js');
 var summary=require('./default/summary.js');
 var association_announce=require('./default/association_announce.js');
-var acivity=require('./default/acivity.js');
-var recruit=require('./default/recruit.js');
+var news=require('./default/news.js');
 var vote=require('./default/vote.js');
 var regist=require('./default/regist.js');
 var login=require('./default/login.js');
 var association_announceContent_more=require('./default/association_announceContent_more.js');
-
+var video=require('./default/video.js');
 
 router.use(index);
 router.use('/regist',regist);
 router.use('/login',login);
-router.use('/unitedHouses_announce',unitedHouses_announce);
 router.use('/summary',summary);
 router.use('/association_announce',association_announce);
-router.use('/acivity',acivity);
-router.use('/recruit',recruit);
+router.use('/news',news);
 router.use('/vote',vote);
 router.use('/association_announceContent_more',association_announceContent_more);
+router.use('/video',video);
 
 module.exports=router.routes();

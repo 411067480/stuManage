@@ -40,7 +40,7 @@
 					{{/each}}
 				</ul>
 			</div>
-			{{each dataG}}
+			<!-- {{each dataG}}
 				{{if !dataG.userinfo}}
 				<div class="loginStyle" >
 					<a href="{{__HOST__}}/login">
@@ -55,7 +55,7 @@
 						</a>
 					</div>
 				{{/if}}
-			{{/each}}
+			{{/each}} -->
 		</div>
 	</div>
 	<!--轮播图-->
@@ -96,7 +96,7 @@
 				<div class="right_field">
 					<div class="first_content">
 						<div class="topSpan">
-							<h2 class="tab-h2">　社团活动</h2>
+							<h2 class="tab-h2">　活动新闻</h2>
 							<a href="#" title="访问">
 								<span>更多</span>
 							</a>
@@ -120,9 +120,9 @@
 							<div class="right_content">
 								<div class="activeNews">
 									<div id="1th-child">
-										{{each activity}}
+										{{each news}}
 										<ul>
-											<a href="acivity/activityContent/{{@$value._id}}">
+											<a href="news/newsContent/{{@$value._id}}">
 											<li>
 												<p class="simpleC">{{$value.activityTitle}}</p>
 												<span>

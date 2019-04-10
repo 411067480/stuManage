@@ -48,7 +48,7 @@
         <li {{if G.url[1]=="manage"}} class="active open" {{/if}}>
             <a href="#" class="dropdown-toggle active">
                 <i class="icon-user-md"></i>
-                <span class="menu-text"> 社团汇管理员 </span>
+                <span class="menu-text"> 管理员管理 </span>
 
                 <b class="arrow icon-angle-down"></b>
             </a>
@@ -96,35 +96,13 @@
         </li>
 
         
-        <li {{if G.url[1]=="user"}} class="active open" {{/if}}>
-            <a href="#" class="dropdown-toggle active">
-                <i class="icon-user-md"></i>
-                <span class="menu-text"> 社团成员管理 </span>
-
-                <b class="arrow icon-angle-down"></b>
-            </a>
-            <ul class="submenu">
-                <li {{if !G.url[2]}} class="active" {{/if}}>
-                    <a href="{{__ROOT_}}/admin/user">
-                        <i class="icon-double-angle-right"></i>
-                        社团成员列表
-                    </a>
-                </li>
-                <li  {{if G.url[2]=="add"}} class="active" {{/if}}>
-                    <a href="{{__ROOT_}}/admin/user/add">
-                        <i class="icon-double-angle-right"></i>
-                        增加社团成员
-                    </a>
-                </li>
-            </ul>
-        </li>
 
         <li {{if G.url[1]=="video"}} class="active open" {{/if}}>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list-alt"></i>
                     <span class="menu-text">
                         社团视频管理
-                        <span class="badge badge-primary ">5</span>
+                        <span class="badge badge-primary ">12</span>
                     </span>
                 <b class="arrow icon-angle-down"></b>
             </a>
@@ -169,82 +147,36 @@
             </ul>
         </li>
 
-        <li {{if G.url[1]=="unitedHouses_announce"}} class="active open" {{/if}}>
+
+        <li {{if G.url[1]=="news"}} class="active open" {{/if}}>
             <a href="#" class="dropdown-toggle active">
                 <i class="icon-user-md"></i>
-                <span class="menu-text"> 社团公告管理 </span>
+                <span class="menu-text"> 活动新闻管理 </span>
 
                 <b class="arrow icon-angle-down"></b>
             </a>
 
             <ul class="submenu">
                 <li {{if !G.url[2]}} class="active" {{/if}}>
-                    <a href="{{__ROOT_}}/admin/unitedHouses_announce">
+                    <a href="{{__ROOT_}}/admin/news">
                         <i class="icon-double-angle-right"></i>
-                        社团公告列表
+                        活动新闻列表
                     </a>
                 </li>
                 <li  {{if G.url[2]=="add"}} class="active" {{/if}}>
-                    <a href="{{__ROOT_}}/admin/unitedHouses_announce/add">
+                    <a href="{{__ROOT_}}/admin/news/add">
                         <i class="icon-double-angle-right"></i>
-                        增加社团公告
+                        增加活动新闻
                     </a>
                 </li>
             </ul>
         </li>
 
-        <li {{if G.url[1]=="acivity"}} class="active open" {{/if}}>
-            <a href="#" class="dropdown-toggle active">
-                <i class="icon-user-md"></i>
-                <span class="menu-text"> 社团活动管理 </span>
-
-                <b class="arrow icon-angle-down"></b>
-            </a>
-
-            <ul class="submenu">
-                <li {{if !G.url[2]}} class="active" {{/if}}>
-                    <a href="{{__ROOT_}}/admin/acivity">
-                        <i class="icon-double-angle-right"></i>
-                        社团活动列表
-                    </a>
-                </li>
-                <li  {{if G.url[2]=="add"}} class="active" {{/if}}>
-                    <a href="{{__ROOT_}}/admin/acivity/add">
-                        <i class="icon-double-angle-right"></i>
-                        增加社团活动
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li {{if G.url[1]=="recruit"}} class="active open" {{/if}}>
-            <a href="#" class="dropdown-toggle active">
-                <i class="icon-user-md"></i>
-                <span class="menu-text"> 社团招新管理 </span>
-
-                <b class="arrow icon-angle-down"></b>
-            </a>
-
-            <ul class="submenu">
-                <li {{if !G.url[2]}} class="active" {{/if}}>
-                    <a href="{{__ROOT_}}/admin/recruit">
-                        <i class="icon-double-angle-right"></i>
-                        社团招新列表
-                    </a>
-                </li>
-                <li  {{if G.url[2]=="add"}} class="active" {{/if}}>
-                    <a href="{{__ROOT_}}/admin/recruit/add">
-                        <i class="icon-double-angle-right"></i>
-                        增加社团招新
-                    </a>
-                </li>
-            </ul>
-        </li>
-
+    
         <li {{if G.url[1]=="vote"}} class="active open" {{/if}}>
             <a href="#" class="dropdown-toggle active">
                 <i class="icon-user-md"></i>
-                <span class="menu-text"> 社团投票管理 </span>
+                <span class="menu-text"> 投票问卷管理 </span>
 
                 <b class="arrow icon-angle-down"></b>
             </a>
@@ -253,13 +185,13 @@
                 <li {{if !G.url[2]}} class="active" {{/if}}>
                     <a href="{{__ROOT_}}/admin/vote">
                         <i class="icon-double-angle-right"></i>
-                        社团投票列表
+                        投票问卷列表
                     </a>
                 </li>
                 <li  {{if G.url[2]=="add"}} class="active" {{/if}}>
                     <a href="{{__ROOT_}}/admin/vote/add">
                         <i class="icon-double-angle-right"></i>
-                        增加社团投票
+                        增加投票问卷
                     </a>
                 </li>
             </ul>

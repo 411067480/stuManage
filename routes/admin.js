@@ -40,31 +40,26 @@ router.use(async (ctx,next)=>{
 
 var index=require('./admin/index.js');
 var login=require('./admin/login.js');
-var user=require('./admin/user.js');
 var manage=require('./admin/manage.js');
 var associationcate=require('./admin/associationcate.js');
 var association_announce=require('./admin/association_announce.js');
-var acivity=require('./admin/acivity.js');
-var recruit=require('./admin/recruit.js');
+var news=require('./admin/news.js');
+
 var vote=require('./admin/vote.js');
 var focus=require('./admin/focus.js');
 var link=require('./admin/link.js');
 var nav=require('./admin/nav.js');
 var video=require('./admin/video.js');
 var setting=require('./admin/setting.js');
-var unitedHouses_announce=require('./admin/unitedHouses_announce.js');
+
 
 //后台的首页
 router.use(index);
 router.use('/login',login);
-router.use('/user',user);
 router.use('/manage',manage);
 router.use('/associationcate',associationcate);
-router.use('/acivity',acivity);
-router.use('/recruit',recruit);
+router.use('/news',news);
 router.use('/vote',vote);
-
-router.use('/unitedHouses_announce',unitedHouses_announce);
 router.use('/association_announce',association_announce);
 router.use('/focus',focus);
 router.use('/link',link);

@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>活动新闻</title>	
+	<!--网页图标---icon_---->
+	<link rel="shortcut icon" href="upload/title_Image/icon.ico"/>
+	<link rel="stylesheet" type="text/css" href="default/css/focus/Cooldog.css" />
+	<link rel="stylesheet" type="text/css" href="default/css/focus/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="default/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="default/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="default/css/index.css" />
+	<link rel="stylesheet" type="text/css" href="default/css/activity-pagination.css" />
+    <link rel="stylesheet" type="text/css" href="default/css/swiper.min.css" />
+	<script type="text/javascript" src="default/js/swiper.min.js"></script>
+	<script type="text/javascript" src="default/js/focus/jquery.min.js"></script>
+	<script type="text/javascript" src="default/js/focus/Cooldog.js"></script>	
+	<!--布局.css-->
+	<link rel="stylesheet" type="text/css" href="default/css/buju.css">
+	<link rel="stylesheet" type="text/css" href="default/css/activity.css">
+</head>
+<body>
+	
+	<!--导航栏-->
+	<!--黑色分割线-->
+	<div class="nav-top-line"></div> 
+	<!--导航栏内容：logo + 分栏选项卡-->
+	<div id="header-wrapper">
+		<div class="header-inner">
+			<div class="logo">
+				<h1>
+					<a href="#" title="欢迎来到学院学生社团汇"></a>
+				</h1>
+			</div>
+			<div class="nav" >
+				<ul class="clear">
+					{{each nav}}
+					<li>
+						<a href="{{$value.navUrl}}"{{if pathname==$value.navUrl}} class="index" {{/if}} title="{{$value.navTitle}}">{{$value.navTitle}}</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+
+			<!--登录按钮-->
+			<!-- {{each dataG}}
+				{{if !dataG.userinfo}}
+				<div class="loginStyle" >
+					<a href="{{__HOST__}}/login">
+						<button type="button" class="loginBtn">登录</button>
+					</a>
+				</div>
+				{{/if}}
+				{{if dataG.prevPage&&dataG.userinfo.value!=""}}
+					<div class="loginStyle" >
+						<a href="{{__HOST__}}/login">
+							<button type="button" hidden>登录</button>
+						</a>
+					</div>
+				{{/if}}
+			{{/each}} -->
+		</div>
+	</div>
+<!--轮播图-->
+{{include 'default/public/focus.html'}}
+<!--公共框架-->
+<div class="main">
+	<div class="content_center_wrapper">
+		<div class="content_center">
+			<div class="left_field">
+				<div class="first_content">
+					<div class="topSpan">
+						<h2 class="tab-h2">　最新社联公告</h2>
+						<a href="#" title="访问" id="moreSee">
+							<span>更多</span>
+						</a>
+					</div>
+					<div class="content">
+						<!--条件判断：status==1为最新公告，status==0为历史公告-->
+						{{if association_announce_result.aAstatus==1}}
+						<h2 class="title" title="社团联合汇第一次全体大会">{{association_announce_result.aAtitle}} </h2>
+						<p class="simpleC">{{association_announce_result.content}}</p>
+						{{/if}}
+					</div>
+				</div>
+				<div class="second_content">
+					<div class="topSpan">
+							<h2 class="tab-h2"> 　最新留言</h2>
+						<a href="#" title="访问">
+							<span>更多</span>
+						</a>
+					</div>
+					<div class="content"></div>
+				</div>
+			</div>
+			<!--********************************************************-->
+			<div class="right_field">
+				<div class="first_content_activity">
+					<div class="topSpan">
+						<a href="#">
+							<h2 class="tab-h2">　活动新闻</h2>
+						</a>
+					</div>
+					<div class="content_activity">
+						<div class="dashed"></div>
+						<div class="content_field">
+							{{each news}}
+							<ul> <!--提供一个动态路由 activityContent/{{@$value._id}}-->
+								<a href="news/newsContent/{{@$value._id}}">
+									<li>
+										<div class="left_img">
+											<img src="{{__HOST__}}/{{$value.pic}}" alt="" style="width:78px;height:73px;" >
+										</div>
+										<div class="right_content">	
+											<div>
+												<p>{{$value.newsTitle}}</p>
+												<div>
+													<span><h6>{{$value.associationName}}</h6></span>
+													<span><h6>{{$value.contributor}}</h6></span>
+													<span><h6>　
+														{{if $value.edit_time}}
+															{{$value.edit_time | dateFormat}}
+														{{/if}}
+													</h6></span>
+												</div>
+												<p class="p">{{$value.newsContent}}</p>
+											</div>
+										</div>
+									</li>
+								</a>
+							</ul>
+							{{/each}}
+						</div>		
+					</div>
+				</div>
+				<!--页码选择器-->
+				<div id="page" class="pagination"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+<!--注意放在jq下面-->
+<script src="{{__HOST__}}/default/jqPaginator.js"></script>
+<script>
+
+$('#page').jqPaginator({
+	totalPages: {{totalPages}},
+	visiblePages: 8,
+	currentPage: {{page}},
+	onPageChange: function (num, type) {
+		console.log(num, type);
+		if(type=='change'){
+			location.href="{{__HOST__}}/news?page="+num;
+		}
+	}
+});
+
+$('#moreSee').mousedown(function(){
+	$(location).attr('href', '{{__HOST__}}/association_announceContent_more');
+});
+</script>
+</html>

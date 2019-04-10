@@ -39,12 +39,8 @@ router.post('/doAdd',tools.multer_video().single('myfile'),async (ctx)=>{
         var status=ctx.req.body.status;
         var add_time=tools.getTime();
         //假若更换myfile，则....
-        if(title==''||(title!=''&&myfile.value==undefined)){
-            await ctx.render('admin/error',{
-                message:'添加信息不完整，请完善信息',
-                redirect:ctx.state.__HOST__+'/admin/video/add'
-            })
-        }else{
+        
+       
             var json={
                 myfile:myfile,
                 title:title,
@@ -53,9 +49,9 @@ router.post('/doAdd',tools.multer_video().single('myfile'),async (ctx)=>{
                 add_time:add_time
             }
              //更新
-            await  DB.insert('video',{title,myfile,sort,status,add_time});
+            await  DB.insert('video',json);
             ctx.redirect(ctx.state.__HOST__+'/admin/video');
-        }
+        
     }catch(err){
         await ctx.render('admin/error',{
             message:err,

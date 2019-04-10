@@ -41,7 +41,7 @@
 						<div class="nav-search" id="nav-search">
 							<form action="{{__HOST__}}/admin/user/index/doSearch" method="post" class="form-search" role="form" style="margin-right:-7px;">
 								<span class="input-icon">
-									<input type="text" placeholder="成员-Search..." class="nav-search-input" id="usernam" name="usernam" autocomplete="off" list="searchlist"/>
+									<input type="text" placeholder="成员-Search..." hidden class="nav-search-input" id="usernam" name="usernam" autocomplete="off" list="searchlist"/>
 									<datalist id="searchlist" >
 										{{each list}}
 										<option value="{{$value.usernam}}">{{$value.usernam}}</option>
@@ -78,10 +78,10 @@
 
 									欢迎使用
 									<strong class="green">
-										Koa+Cms后台管理系统
-										<small>(v1.2)</small>
+										学生社团内容管理系统
+										<small></small>
 									</strong>
-									,轻量级好用的后台管理系统。	
+									
 								</div>
 
 								

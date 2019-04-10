@@ -83,10 +83,10 @@ let tools={
         var upload = multer({ storage: storage });
         return upload
     },
-    multer_activity(){  /*???????????*/
+    multer_news(){  /*???????????*/
         var storage = multer.diskStorage({
             destination: function (req, file, cb) {
-                cb(null, 'public/upload/activity_Image')
+                cb(null, 'public/upload/news_Image')
             },
             filename: function (req, file, cb) {
                 var fileFormat = (file.originalname).split(".");   /*????????  ???????*/
