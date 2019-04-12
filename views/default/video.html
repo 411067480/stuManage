@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>社团视频</title>	
-	<link rel="stylesheet" type="text/css" href="default/css/vote-pagination.css" />
+	<link rel="stylesheet" type="text/css" href="default/css/video-pagination.css" />
 	<!--网页图标---icon_---->
 	<link rel="shortcut icon" href="upload/title_Image/icon.ico"/>
 	<link rel="stylesheet" type="text/css" href="default/css/focus/Cooldog.css" />
@@ -15,13 +15,17 @@
 	<script type="text/javascript" src="default/js/swiper.min.js"></script>
 	<script type="text/javascript" src="default/js/focus/jquery.min.js"></script>
 	<script type="text/javascript" src="default/js/focus/Cooldog.js"></script>	
-
 	<!--布局.css-->
 	<link rel="stylesheet" type="text/css" href="default/css/buju.css">
 	<link rel="stylesheet" type="text/css" href="default/css/vote.css">
+
+	<link rel="stylesheet" href="default/video/css/reset.min.css">
+	<link rel="stylesheet" href="default/video/css/style.css">
+	
 </head>
 <body>
 	
+<!--导航栏-->
 	<!--导航栏-->
 	<!--黑色分割线-->
 	<div class="nav-top-line"></div> 
@@ -60,86 +64,59 @@
 			{{/each}} -->
 		</div>
 	</div>
-<!--轮播图-->
-{{include 'default/public/focus.html'}}
-<!--公共框架-->
-<div class="main">
-	<div class="content_center_wrapper">
-		<div class="content_center">
-            <div class="left_field">
-                <div class="first_content">
-                    <div class="topSpan">
-                        <h2 class="tab-h2">　最新社联公告</h2>
-                        <a href="#" title="访问" id="moreSee">
-                            <span>更多</span>
-                        </a>
-                    </div>
-                    <div class="content">
-                        <!--条件判断：status==1为最新公告，status==0为历史公告-->
-                        {{if association_announce_result.aAstatus==1}}
-                        <h2 class="title" title="社团联合汇第一次全体大会">{{association_announce_result.aAtitle}} </h2>
-                        <p class="simpleC">{{association_announce_result.content}}</p>
-                        {{/if}}
-                    </div>
-                </div>
-                <div class="second_content">
-                    <div class="topSpan">
-                            <h2 class="tab-h2"> 　最新留言</h2>
-                        <a href="#" title="访问">
-                            <span>更多</span>
-                        </a>
-                    </div>
-                    <div class="content"></div>
-                </div>
-            </div>
-            <!--********************************************************-->
-            <div class="right_field">
-                <div class="first_content_association_nounce">
-                    <div class="topSpan">
-                        <a href="#">
-                            <h2 class="tab-h2">　社团视频</h2>
-                        </a>
-                    </div>
-                    <div class="content_association_nounce">
-                        <div class="blank"></div>
-					   {{each allResult}}
-					   {{if $value.voteStatus==1}}
-                        <div class="content"> 
-                            <h2 class="title">{{$value.voteTitle}}
-                                <span class='publishTime'>
-									[
-									{{if $value.vote_time}}
-										{{$value.vote_time | dateFormat}}
-										{{/if}}
-									]
-                                </span>
-                            </h2>
-                            <span class="voteSpan-first">
-								投票链接：
-								<a href="{{$value.voteUrl}}">{{$value.voteUrl}}</a>
-							</span>
-							<br>
-							<span class="voteSpan-first">
-								申请发布方：{{$value.associationName}}
-							</span>
-                            <div class="dashed"></div>
-						</div>
-						{{/if}}
-						{{/each}}
-                    </div>
-                </div>
-                <!--页码选择器-->
-                <div id="page" class="pagination" style="margin-left:28px;"></div>
-            </div>
+	
+<div id="site">
+	{{each videolist}}
+	<!-- {{if $value.status==1}} -->
+	<div id="videoBox" class="box">
+		<video width="400" controls>
+		<source src="{{$value.myfile}}" type="video/mp4">Your browser does not support HTML5 video. </video>
+	</div>
+  
+	<div id="bloc">
+		<div id="commentsBox" class="box">
+			<div>
+				<h2>视频简介</h2><br>
+				<hr><br>
+				<p><span></span><span></span><span></span><span></span><span></span></p>
+				<br>
+			</div>
+		</div>
+		<div id="suggBox" class="box">
+			<div>
+				<h2>视频名称</h2><br>
+				<hr><br>
+				<p>{{$value.title}}</p>
+				<br>
+			</div>
 		</div>
 	</div>
+	<!-- {{/if}} -->
+	{{/each}}	
+	<!--页码选择器-->
+	<div id="page" class="pagination"></div> 
 </div>
-
-
+	 
+		 
+	  
 </body>
 
+<script src="default/video/js/jquery.min.js"></script>
+	  <script src="default/video/js/index.js"></script>
+	  <!--注意放在jq下面-->
+	  <script src="{{__HOST__}}/default/jqPaginator.js"></script>
+	  <script>
+		$('#page').jqPaginator({
+			totalPages: {{totalPages}},
+			visiblePages: 8,
+			currentPage: {{page}},
+			onPageChange: function (num, type) {
+				console.log(num, type);
+				if(type=='change'){
+					location.href="{{__HOST__}}/video?page="+num;
+				}
+			}
+		}); 
+	  </script>
 
-<script>
-
-</script>
 </html>

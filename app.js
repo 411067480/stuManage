@@ -64,14 +64,6 @@ app.use(router.routes());   /*启动路由*/
 app.use(router.allowedMethods());
 app.listen(6060);
 
-
-
-
-
-
-
-
-
 // var Koa=require('koa');
 // var router = require('koa-router')(),//注意：引入的方式
 // //实例化koa.js框架

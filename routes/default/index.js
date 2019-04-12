@@ -34,7 +34,7 @@ router.get('/',async (ctx)=>{
     /* 获取社团活动 */
     var page =ctx.query.page||1;
     var pageSize=7;
-    var activity = await DB.find('acivity',{},{},{
+    var news = await DB.find('news',{},{},{
         page,
         pageSize,
         sortJson:{
@@ -52,7 +52,7 @@ router.get('/',async (ctx)=>{
         page:page,
         totalPages:Math.ceil(count/pageSize),
         association_announce_result:association_announce_result[0],
-        activity:activity
+        news:news
     });
 
 })

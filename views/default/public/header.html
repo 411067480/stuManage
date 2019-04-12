@@ -16,7 +16,7 @@
             <ul class="clear">
                 {{each nav}}
                 <li>
-                    <a href="{{$value.url}}" {{if pathname==$value.url}} class="index" {{/if}} title="{{$value.title}}">{{$value.title}}</a>
+                    <a href="{{$value.navUrl}}"{{if pathname==$value.navUrl}} class="index" {{/if}} title="{{$value.navTitle}}">{{$value.navTitle}}</a>
                 </li>
                 {{/each}}
             </ul>

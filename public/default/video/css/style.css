@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #121314;
+}
+
+#site {
+  width: 600px;
+  margin: 50px auto;
+}
+
+#bloc {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.box {
+  margin: 10px;
+}
+
+#videoBox {
+  border: 10px solid #212223;
+  transition: 0.5s;
+}
+
+#commentsBox {
+  float: left;
+  width: 340px;
+}
+
+#suggBox {
+  float: left;
+  width: 220px;
+ 
+}
+
+#commentsBox > div,
+#suggBox > div {
+  background: #212223;
+  margin-bottom: 20px;
+  padding: 20px 30px;
+}
+
+#suggBox h2 {
+  width: 100%;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  height: 8px;
+  margin:0px 0;
+  
+}
+#suggBox hr {
+ 
+
+}
+#suggBox p {
+  width: 100%;
+  font-size: 16px;
+  color: rgb(255, 145, 0);
+  height: 8px;
+  margin:0px 0;
+}
+
+/* #suggBox p:before {
+  width: 30%;
+  content: ' ';
+  display: block;
+  background: #7099c2;
+  height: 8px;
+  margin: 10px 0;
+}
+
+#suggBox p:after {
+  width: 70%;
+  content: ' ';
+  display: block;
+  background: #999;
+  height: 8px;
+  margin: 10px 0;
+} */
+
+#commentsBox p span {
+  width: 100%;
+  display: block;
+  background: #eee;
+  height: 6px;
+  margin: 15px 0;
+}
+
+#commentsBox h2 {
+  width: 100%;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  height: 8px;
+  margin:0px 0;
+}
+
+/* #commentsBox p:after {
+  width: 70%;
+  content: ' ';
+  display: block;
+  background: #eee;
+  height: 6px;
+  margin: 10px 0;
+} */
+
+video {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+#videoBox:first-child.in {
+  animation: ac 1s;
+}
+
+#videoBox:first-child.out {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  z-index: 999;
+  animation: an 0.5s;
+}
+#videoBox:nth-child(2) {
+  animation: ac 1s;
+}
+#videoBox:nth-child(2).out {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  z-index: 999;
+  animation: an 0.5s;
+}
+

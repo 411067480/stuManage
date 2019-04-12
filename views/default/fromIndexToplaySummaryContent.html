@@ -71,11 +71,13 @@
 			<div class="page-title">
 				<img src="{{__HOST__}}/{{$value.pic}}" alt="{{$value.title}}" style="width:150px;height:150px;">
 				<span>成立日期：{{$value.establishDate}}　更新时间：
-					{{if $value.add_time}}
-						{{$value.add_time | dateFormat}}
-					{{/if}}
+					{{if $value.update_time}}
+						{{$value.update_time | dateFormat}}
+					{{/if}}　	
+					创始人：{{$value.creater}}
 				</span>
-				<h2>{{$value.associationName}}</h2>
+			
+				<h2 style='font-weight: bolder'>{{$value.associationName}}</h2>
 				
 			</div>
 		</div>
@@ -91,55 +93,13 @@
 						{{/each}}
 					</div>
 				</div>
-				
-				
-
 			</div>
 		</div>
 	</div>
 
-	<div class="fh5co-navigation">
-		<div class="fh5co-cover prev fh5co-cover-sm" style="background-image: url({{__HOST__}}/default/images/project-4.jpg)">
-			<div class="overlay"></div>
+	
 
-			<a class="copy" href="#">
-				<div class="display-t">
-					<div class="display-tc">
-						<div>
-							<span>Previous Post</span>
-							<h2>How to be an affective web developer</h2>
-						</div>
-					</div>
-				</div>
-			</a>
-
-		</div>
-		<div class="fh5co-cover next fh5co-cover-sm" style="background-image: url({{__HOST__}}/default/images/project-5.jpg)">
-			<div class="overlay"></div>
-			<a class="copy" href="#">
-				<div class="display-t">
-					<div class="display-tc">
-						<div>
-							<span>Next Post</span>
-							<h2>How to be an affective web developer</h2>
-						</div>
-					</div>
-				</div>
-			</a>
-
-		</div>
-	</div>
-
-	<footer>
-		<div>
-		Copyright &copy; 2016.Company name All rights reserved.
-		<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a> 
-		Designed by 
-		<a href="http://" target="_blank"></a> 
-		Demo Images: 
-		<a href="http://unsplash.com" target="_blank">Unsplash</a>
-		</div>
-	</footer>
+	
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
