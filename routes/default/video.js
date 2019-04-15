@@ -14,7 +14,7 @@ router.get('/',async (ctx)=>{
         page,
         pageSize,
         sortJson:{
-            'add_time':1
+            'add_time':-1
         }
     });    
     var count=await DB.count('video',{});

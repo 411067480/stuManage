@@ -36,20 +36,14 @@ router.get('/add',async (ctx)=>{
 })
 
 router.post('/doAdd',tools.multer_manage().single('pic'),async (ctx)=>{
-
     //1.获取表单提交的数据    console.log(ctx.request.body);
-
     //2.验证表单数据是否合法
-
     //3.在数据库查询当前要增加的管理员是否存在
-
     //4.增加管理员
-
     let pic=ctx.req.file? ctx.req.file.path.substr(7) :'';
     var manageName=ctx.req.body.manageName;
     var password=ctx.req.body.password;
     var rpassword=ctx.req.body.rpassword;
-    
     if(!/^\w{4,20}/.test(manageName)){
         await ctx.render('admin/error',{
             message:'用户名不合法',
@@ -71,9 +65,8 @@ router.post('/doAdd',tools.multer_manage().single('pic'),async (ctx)=>{
         }else{
             //增加管理员
            var addResult =await  DB.insert('admin',{"manageName":manageName,"password":tools.md5(password),"pic":pic,"last_time":''});
-
            ctx.redirect(ctx.state.__HOST__+'/admin/manage');
-           //console.log(addResult);
+
         }
     }
 })
@@ -85,7 +78,6 @@ router.get('/edit',async (ctx)=>{
     await ctx.render('admin/manage/edit',{
        list:result[0]
    })
-
 })
 
 router.post('/doEdit',tools.multer_manage().single('pic'),async (ctx)=>{

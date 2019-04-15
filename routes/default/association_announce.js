@@ -12,7 +12,7 @@ router.get('/',async (ctx)=>{
 
      /* 页码选择器设置 */
      var page=ctx.query.page ||1;  //如果没有当前页，默认为第1页
-     var pageSize=2;  //设置每页显示7条数据
+     var pageSize=4;  //设置每页显示7条数据
      //查询总数量
      var count = await  DB.count('association_announce',{});
     /*获取社联公告所有*/ 

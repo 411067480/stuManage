@@ -48,28 +48,21 @@ router.get('/changeStatus',async (ctx)=>{
 
 
 router.get('/changeSort',async (ctx)=>{
-
-    //console.log(ctx.query);
-
+    console.log(ctx.query);
     var collectionName=ctx.query.collectionName; /*数据库表*/
     var id=ctx.query.id;
     var sortValue=ctx.query.sortValue;
     //更新的数据
-
     var json={
-
         sort:sortValue
     }
     let updateResult=await DB.update(collectionName,{"_id":DB.getObjectId(id)},json);
-
     if(updateResult){
         ctx.body={"message":'更新成功',"success":true};
     }else{
         ctx.body={"message":"更新失败","success":false}
     }
-
 })
-
 
 /*公共的删除方法*/
 router.get('/remove',async (ctx)=>{
@@ -77,7 +70,6 @@ router.get('/remove',async (ctx)=>{
     try{
         var collection=ctx.query.collection; /*数据库表*/
         var id=ctx.query.id;   /*删除 id*/
-
         var result=DB.remove(collection,{"_id":DB.getObjectId(id)});
         //返回到哪里?
         ctx.redirect(ctx.state.G.prevPage);
