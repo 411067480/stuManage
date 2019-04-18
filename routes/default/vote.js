@@ -25,7 +25,11 @@ router.get('/',async (ctx)=>{
             //'vote_time':1：正序排序，最新修改或增加的数据会优先显示在最后一条
         }
     });
-    console.log(association_announce_result);
+    var aResult = await DB.find('associationcate',{},{},{
+        sortJson:{
+            'update_time':-1
+        }
+    });
     //轮播图  注意状态数据不一致问题  建议在后台增加数据的时候将状态转化成number类型
     var focusResult=await DB.find('focus',{$or:[{'focusStatus':1},{'focusStatus':'1'}]},{},{
         sortJson:{'sort':1}
@@ -34,6 +38,7 @@ router.get('/',async (ctx)=>{
     console.timeEnd('start');
     ctx.render('default/vote',{
         nav:nav,
+        aResult:aResult,
         dataG:a,
         focus:focusResult,
         association_announce_result:association_announce_result[0],

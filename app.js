@@ -82,10 +82,10 @@ app.listen(6060);
 
 const mongoose = require('mongoose');
 //连接mongoDB数据库
-mongoose.connect('mongodb://localhost/test') //test是数据库名称
+mongoose.connect('mongodb://localhost/association') //association是被链接的数据库名称
 //实例化连接对象
 const db = mongoose.connection
 db.on('error',console.error.bind(console,'连接错误:'))
 db.once('open',(callback) => {
-     console.log('MongoDB连接成功!');
+     console.log('MongoDB连接成功OK!');
 })

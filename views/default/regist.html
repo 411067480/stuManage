@@ -69,50 +69,42 @@
                 </select>
             </div>
             <br>
-           
             <select class='catename' name="pid" id="pid">
                 {{each catelist}}
                 <option value="{{@$value._id}}">{{$value.associationName}}</option>
                 {{/each}}
             </select>
-
             <!--此处我i设置默认:所在社团:选项-->
             <input type="text" name="associationName" id="associationName"  value="{{catelist[0].associationName}}" hidden />
             <br>
-
             <select class='sex' name="sex" id="sex">
                 <option value="男">男</option>
                 <option value="女">女</option>
             </select>
             <br>
-            
             <div class="submitBtn">
                 <button type="submit" class="set btn btn-info">注册</button>
             </div>
-
             <div class="submitBtn">
                 <a href="{{__HOST__}}/login">
                 <button type="button" class="set btn btn-warning" >已有账号，去登录</button>
                 </a>
             </div>
         </form>
-        
     </div>
 </body>
 <script>
-//分类改变的时候  把分类的名称赋值给隐藏的表单域
-var pidDom=document.getElementById('pid');
-var associationName=document.getElementById('associationName');
-var options=pidDom.getElementsByTagName('option');
-pidDom.onchange=function(){
-    //分类改变的时候 获取选中的值 赋值给  associationName
-    for(var i=0;i<options.length;i++){
-        if(options[i].selected){
-            associationName.value=options[i].innerHTML.trim();
+    //分类改变的时候  把分类的名称赋值给隐藏的表单域
+    var pidDom=document.getElementById('pid');
+    var associationName=document.getElementById('associationName');
+    var options=pidDom.getElementsByTagName('option');
+    pidDom.onchange=function(){
+        //分类改变的时候 获取选中的值 赋值给  associationName
+        for(var i=0;i<options.length;i++){
+            if(options[i].selected){
+                associationName.value=options[i].innerHTML.trim();
+            }
         }
     }
-}
-
-
 </script>
 </html>

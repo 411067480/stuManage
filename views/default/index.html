@@ -17,155 +17,174 @@
 	<script type="text/javascript" src="default/js/focus/Cooldog.js"></script>	
 	<!--布局.css-->
 	<link rel="stylesheet" type="text/css" href="default/css/buju.css">
+	<style>
+	.masked{
+        text-align: center;
+        background-image: -webkit-linear-gradient(
+             left,
+             #2790ec,
+             #E6D205 25%, 
+             #e93636 50%, 
+             #E6D205 75% ,
+             #e93636
+        );
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation: masked-animation 4s infinite linear;
+      }
+    @-webkit-keyframes masked-animation {
+         0%{ background-position: 0 0;}
+         100% { background-position: -100% 0;}
+    }
+	</style>
 </head>
 <body>
-<div class="all">
-	<!--导航栏-->
-	<!--黑色分割线-->
-	<div class="nav-top-line"></div> 
-	<!--导航栏内容：logo + 分栏选项卡-->
-	<div id="header-wrapper">
-		<div class="header-inner">
-			<div class="logo">
-				<h1>
-					<a href="#" title="欢迎来到学院学生社团汇"></a>
-				</h1>
-			</div>
-			<div class="nav" >
-				<ul class="clear">
-					{{each nav}}
-					<li>
-						<a href="{{$value.navUrl}}"{{if pathname==$value.navUrl}} class="index" {{/if}} title="{{$value.navTitle}}">{{$value.navTitle}}</a>
-					</li>
-					{{/each}}
-				</ul>
-			</div>
-			<!-- {{each dataG}}
-				{{if !dataG.userinfo}}
-				<div class="loginStyle" >
-					<a href="{{__HOST__}}/login">
-						<button type="button" class="loginBtn">登录</button>
-					</a>
+	<div class="all">
+		<!--导航栏-->
+		<!--黑色分割线-->
+		<div class="nav-top-line"></div> 
+		<!--导航栏内容：logo + 分栏选项卡-->
+		<div id="header-wrapper">
+			<div class="header-inner">
+				<div class="logo">
+					<h1>
+						<a href="#" title="欢迎来到学院学生社团汇"></a>
+					</h1>
 				</div>
-				{{/if}}
-				{{if dataG.prevPage&&dataG.userinfo.value!=""}}
-					<div class="loginStyle" >
-						<a href="{{__HOST__}}/login">
-							<button type="button" hidden>登录</button>
-						</a>
-					</div>
-				{{/if}}
-			{{/each}} -->
+				<div class="nav" >
+					<ul class="clear">
+						{{each nav}}
+						<li>
+							<a href="{{$value.navUrl}}"{{if pathname==$value.navUrl}} class="index" {{/if}} title="{{$value.navTitle}}">{{$value.navTitle}}</a>
+						</li>
+						{{/each}}
+					</ul>
+				</div>
+			</div>
 		</div>
-	</div>
-	<!--轮播图-->
-	{{include 'default/public/focus.html'}}
-	<!--公共框架-->
-	<div class="main">
-		<div class="content_center_wrapper">
-			<div class="content_center">
-				<div class="left_field">
-					<div class="first_content">
-						<div class="topSpan">
-							<h2 class="tab-h2">　最新社联公告</h2>
-							<a href="#" title="访问" id="moreSee">
-							 	<span>更多</span>
-							</a>
+		<!--轮播图-->
+		{{include 'default/public/focus.html'}}
+		<!--公共框架-->
+		<div class="main">
+			<div class="content_center_wrapper">
+				<div class="content_center">
+					<div class="left_field">
+						<div class="first_content">
+							<div class="topSpan">
+								<h2 class="tab-h2">　最新社联公告</h2>
+								<a href="#" title="访问" id="moreSee">
+									<span>更多</span>
+								</a>
+							</div>
+							<div class="content">
+								<!--条件判断：status==1为最新公告，status==0为历史公告-->
+								{{if association_announce_result.aAstatus==1}}
+								<h2 class="title" title="社团联合汇第一次全体大会">{{association_announce_result.aAtitle}} </h2>
+								<p class="simpleC">{{association_announce_result.content}}</p>
+								{{/if}}
+							</div>
 						</div>
-						
-						<div class="content">
-							<!--条件判断：status==1为最新公告，status==0为历史公告-->
-							{{if association_announce_result.aAstatus==1}}
-							<h2 class="title" title="社团联合汇第一次全体大会">{{association_announce_result.aAtitle}} </h2>
-							<p class="simpleC">{{association_announce_result.content}}</p>
-							{{/if}}
-						</div>
-				
-					</div>
-					<div class="second_content">
-						<div class="topSpan">
-								<h2 class="tab-h2"> 　社团简介</h2>
-							<a href="#" title="访问">
-								<span>更多</span>
-							</a>
-						</div>
-						<div class="content"></div>
-					</div>
-				</div>
-				<!--********************************************************-->
-				<div class="right_field">
-					<div class="first_content">
-						<div class="topSpan">
-							<h2 class="tab-h2">　活动新闻</h2>
-							<a href="#" title="访问">
-								<span>更多</span>
-							</a>
-						</div>
-						<div class="content">
-							<div id="demo2" class="slideBox left_content">
-								<ul class="items">
-									<li><a href="http://sc.chianz.com/" title="测试标题一"><img src="default/css/smallFocus/img/1.jpg"></a></li>
-									<li><a href="http://sc.chianz.com/" title="测试标题二"><img src="default/css/smallFocus/img/2.jpg"></a></li>
-									<li><a href="http://sc.chianz.com/" title="测试标题三"><img src="default/css/smallFocus/img/3.jpg"></a></li>
-									<li><a href="http://sc.chianz.com/" title="测试标题四"><img src="default/css/smallFocus/img/4.jpg"></a></li>
-									<li><a href="http://sc.chianz.com/" title="测试标题五"><img src="default/css/smallFocus/img/5.jpg"></a></li>
+						<div class="second_content">
+							<div class="topSpan">
+									<h2 class="tab-h2"> 　社团简介</h2>
+								<a href="{{__HOST__}}/summary" title="访问">
+									<span>更多</span>
+								</a>
+							</div>
+							<div class="content">
+								<ul style="margin-top:10px;">
+									{{each aResult}}
+									<li>			
+										<a href="fromIndexToplaySummaryContent/{{@$value._id}}">
+											<span style="font-size:15px;float:left;width:45%;margin-left: 5%;color:black;font-weight: bolder">{{$value.associationName}}</span>
+										</a>
+									</li>
+									{{/each}}
 								</ul>
 							</div>
-							<!-- <div class="left_content">
-								<div class="img">
-									<img src="" alt="">
-								</div>
-							</div> -->
-						
-							<div class="right_content">
-								<div class="activeNews">
-									<div id="1th-child">
+						</div>
+					</div>
+					<!--********************************************************-->
+					<div class="right_field">
+						<div class="first_content">
+							<div class="topSpan">
+								<h2 class="tab-h2">　活动新闻</h2>
+								<a href="{{__HOST__}}/news" title="访问">
+									<span>更多</span>
+								</a>
+							</div>
+							<div class="content">
+								<div id="demo2" class="slideBox left_content">
+									<ul class="items">
 										{{each news}}
-										<ul>
-											<a href="news/newsContent/{{@$value._id}}">
-											<li>
-												<p class="simpleC">{{$value.newsTitle}}</p>
-												<span>
-													{{if $value.edit_time}}
-														{{$value.edit_time | dateFormat}}
-													{{/if}}
-												</span>
-												<div class="dashed"></div>
-											</li>
-											</a>
-										</ul>
+										<li><a href="news/newsContent/{{@$value._id}}" title='{{$value.associationName}}'><img src='{{$value.pic}}'/></a></li>
 										{{/each}}
+									</ul>
+								</div>
+								<div class="right_content">
+									<div class="activeNews">
+										<div id="1th-child">
+											{{each news}}
+											<ul>
+												<a href="news/newsContent/{{@$value._id}}">
+												<li>
+													<p class="simpleC">■{{$value.newsTitle}}</p>
+													<span>
+														{{if $value.edit_time}}
+															{{$value.edit_time | dateFormat}}
+														{{/if}}
+													</span>
+													<div class="dashed"></div>
+												</li>
+												</a>
+											</ul>
+											{{/each}}
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
+						<div class="second_content">
+							<div class="topSpan">
+								<h2 class="tab-h2 tab1">　投票问卷</h2>
+								<a href="{{__HOST__}}/vote" title="访问">
+									<span>更多</span>
+								</a>
+							</div>
+							<div class="content">
+								<ul style="margin-top:5%;margin-left:0px;width: 100%;height:90%;background-color: rgb(255, 255, 245);">
+									{{each vote}}
+									<li>
+										<div style="font-size:15px;text-align: center;">发布申请方：{{$value.associationName}}</div>
+										<div style="font-size:15px;text-align: center;"><a href="{{$value.voteUrl}}" style="color:blue;">{{$value.voteUrl}}</a></div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- 社团：图标+内容
-	{{include 'default/public/association_list.html'}} -->
-</div>
-
-
 </body>
-<script>
-$(document).ready(function(){
-	jQuery(function($){
-		$('#demo2').slideBox({
-			direction : 'top',//left,top#方向
-			duration : 0.3,//滚动持续时间，单位：秒
-			easing : 'linear',//swing,linear//滚动特效
-			delay : 5,//滚动延迟时间，单位：秒
-			startIndex : 1//初始焦点顺序
-		});
-	});
 
-    $('#moreSee').mousedown(function(){
-        $(location).attr('href', '{{__HOST__}}/association_announceContent_more');
-    });
-})	
-	
+<script>
+	$(document).ready(function(){
+		jQuery(function($){
+			$('#demo2').slideBox({
+				direction : 'top',//left,top#方向
+				duration : 0.3,//滚动持续时间，单位：秒
+				easing : 'linear',//swing,linear//滚动特效
+				delay : 5,//滚动延迟时间，单位：秒
+				startIndex : 1//初始焦点顺序
+			});
+		});
+		$('#moreSee').mousedown(function(){
+			$(location).attr('href', '{{__HOST__}}/association_announceContent_more');
+		});
+	})	
 </script>
 </html>

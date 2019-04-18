@@ -21,7 +21,6 @@
 	<link rel="stylesheet" type="text/css" href="default/css/vote.css">
 </head>
 <body>
-	
 	<!--导航栏-->
 	<!--黑色分割线-->
 	<div class="nav-top-line"></div> 
@@ -85,11 +84,21 @@
                 <div class="second_content">
                     <div class="topSpan">
                             <h2 class="tab-h2"> 　社团简介</h2>
-                        <a href="#" title="访问">
+                        <a href="{{__HOST__}}/summary" title="访问">
                             <span>更多</span>
                         </a>
                     </div>
-                    <div class="content"></div>
+					<div class="content">
+						<ul style="margin-top:10px;">
+							{{each aResult}}
+							<li>			
+								<a href="fromIndexToplaySummaryContent/{{@$value._id}}">
+									<span style="font-size:15px;float:left;width:45%;margin-left: 5%;color:black;font-weight: bolder">{{$value.associationName}}</span>
+								</a>
+							</li>
+							{{/each}}
+						</ul>
+					</div>
                 </div>
             </div>
             <!--********************************************************-->

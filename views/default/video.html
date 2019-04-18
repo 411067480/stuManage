@@ -72,7 +72,6 @@
 		<video width="400" controls>
 		<source src="{{$value.myfile}}" type="video/mp4">Your browser does not support HTML5 video. </video>
 	</div>
-  
 	<div id="bloc">
 		<div id="commentsBox" class="box">
 			<div>
@@ -102,21 +101,21 @@
 </body>
 
 <script src="default/video/js/jquery.min.js"></script>
-	  <script src="default/video/js/index.js"></script>
-	  <!--注意放在jq下面-->
-	  <script src="{{__HOST__}}/default/jqPaginator.js"></script>
-	  <script>
-		$('#page').jqPaginator({
-			totalPages: {{totalPages}},
-			visiblePages: 8,
-			currentPage: {{page}},
-			onPageChange: function (num, type) {
-				console.log(num, type);
-				if(type=='change'){
-					location.href="{{__HOST__}}/video?page="+num;
-				}
+<script src="default/video/js/index.js"></script>
+<!--注意放在jq下面-->
+<script src="{{__HOST__}}/default/jqPaginator.js"></script>
+<script>
+	$('#page').jqPaginator({
+		totalPages: {{totalPages}},
+		visiblePages: 8,
+		currentPage: {{page}},
+		onPageChange: function (num, type) {
+			console.log(num, type);
+			if(type=='change'){
+				location.href="{{__HOST__}}/video?page="+num;
 			}
-		}); 
-	  </script>
+		}
+	}); 
+</script>
 
 </html>

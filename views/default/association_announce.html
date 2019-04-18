@@ -84,11 +84,21 @@
                 <div class="second_content">
                     <div class="topSpan">
                         <h2 class="tab-h2"> 　社团简介</h2>
-                        <a href="#" title="访问" >
+                        <a href="{{__HOST__}}/summary" title="访问" >
                             <span>更多</span>
                         </a>
                     </div>
-                    <div class="content"></div>
+                    <div class="content">
+                        <ul style="margin-top:10px;">
+                            {{each aResult}}
+                            <li>			
+                                <a href="fromIndexToplaySummaryContent/{{@$value._id}}">
+                                    <span style="font-size:15px;float:left;width:45%;margin-left: 5%;color:black;font-weight: bolder">{{$value.associationName}}</span>
+                                </a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
                 </div>
             </div>
             <!--********************************************************-->
@@ -129,22 +139,23 @@
 </div>
 
 </body>
+
 <!--注意放在jq下面-->
 <script src="{{__HOST__}}/default/jqPaginator.js"></script>
 <script>
-$('#page').jqPaginator({
-    totalPages: {{totalPages}},
-    visiblePages: 10,
-    currentPage: {{page}},
-    onPageChange: function (num, type) {
-        console.log(num, type);
-        if(type=='change'){
-            location.href="{{__HOST__}}/association_announce?page="+num;
+    $('#page').jqPaginator({
+        totalPages: {{totalPages}},
+        visiblePages: 10,
+        currentPage: {{page}},
+        onPageChange: function (num, type) {
+            console.log(num, type);
+            if(type=='change'){
+                location.href="{{__HOST__}}/association_announce?page="+num;
+            }
         }
-    }
-});
-$('#moreSee').mousedown(function(){
-    $(location).attr('href', '{{__HOST__}}/association_announceContent_more');
-});
+    });
+    $('#moreSee').mousedown(function(){
+        $(location).attr('href', '{{__HOST__}}/association_announceContent_more');
+    });
 </script>
 </html>

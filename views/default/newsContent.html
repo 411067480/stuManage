@@ -60,12 +60,10 @@
 
 <div class="container">
 	<div class="article">
-
 		<div class="turnOff">
 			<a href="#" id="off"><i class="icon-remove-circle"></i></a>
 		</div>
 		{{each currentResult}}
-		
 		<div class="title">
 			{{$value.newsTitle}}
 		</div>
@@ -89,61 +87,45 @@
 		</p>	
 		{{/each}}
 		<br><br>
-		<!-- <div><span><h2>|| 热点推荐</h2></span></div> -->
 		<hr id="hr">
-		<!-- <div class='intro'>
-			<ul>
-				<li>
-					<span class="hot">■</span>
-					<span class="activityTitle"><a href=""></a></span>
-				</li>
-			</ul>
-		</div> -->
 	</div>
 </div>
 
-
-
 </body>
-<script>
-$(document).ready(function(){
-	$('#off').mousedown(function(){
-		$('.container').css('display','none');
-		$(location).attr('href','{{__HOST__}}/news');
-	});
-	$('.hot').css({'color':'red','font-size':'28px'});
-	$('.activityTitle').css({'font-size':'15px'});
-})
-
-$(document).click(function(){
-	$('.article').effect('shake');
-})
-</script>
-
-<!-- smooth scrolling -->
-<script type="text/javascript" src="{{__HOST__}}/default/js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="{{__HOST__}}/default/js/move-top.js"></script>
-<script type="text/javascript" src="{{__HOST__}}/default/js/easing.js"></script>
-<!-- here stars scrolling icon -->
-<script type="text/javascript">
-	$(document).ready(function() {
-		/*
-			var defaults = {
-			containerID: 'toTop', // fading element id
-			containerHoverID: 'toTopHover', // fading element hover id
-			scrollSpeed: 1200,
-			easingType: 'linear' 
-			};
-		*/
-							
-		// $().UItoTop({ easingType: 'easeOutQuart' });
-							
+	<script>
+	$(document).ready(function(){
+		$('#off').mousedown(function(){
+			$('.container').css('display','none');
+			$(location).attr('href','{{__HOST__}}/news');
 		});
-</script>
-<!-- //here ends scrolling icon -->
-<!-- //smooth scrolling -->
-
-
+		$('.hot').css({'color':'red','font-size':'28px'});
+		$('.activityTitle').css({'font-size':'15px'});
+	})
+	$(document).click(function(){
+		$('.article').effect('shake');
+	})
+	</script>
+	<!-- smooth scrolling -->
+	<script type="text/javascript" src="{{__HOST__}}/default/js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="{{__HOST__}}/default/js/move-top.js"></script>
+	<script type="text/javascript" src="{{__HOST__}}/default/js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			// $().UItoTop({ easingType: 'easeOutQuart' });				
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+	<!-- //smooth scrolling -->
 </html>
 
 

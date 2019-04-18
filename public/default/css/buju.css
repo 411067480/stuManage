@@ -211,4 +211,40 @@
 }  
 
 
-
+.right_field .second_content{
+    width: 49.5%;
+    height: 445px;
+    background-color: rgb(234, 239, 248);
+    margin-top: 10px;
+    float: left;
+    margin-right: 7px;
+}
+.right_field .second_content .content{
+    background-color: rgb(255, 255, 255);
+    width: 95%;
+    height: 355px;
+    margin: 8px auto; 
+    border: 1px solid rgb(225, 225, 225);
+}
+.right_field .second_content2{
+    width: 49.5%;
+    height: 445px;
+    background-color: rgb(234, 239, 248);
+    margin-top: 10px;
+    float: left;
+    
+}
+.right_field .second_content2 .content{
+    background-color: rgb(255, 255, 255);
+    width: 95%;
+    height: 355px;
+    margin: 8px auto; 
+    border: 1px solid rgb(225, 225, 225);
+}
+.tab1{
+    color:#ff0909;
+    letter-spacing: 2px;/*字符间距*/
+    text-align:left;
+    font-weight: bolder;
+    float: left;    
+}

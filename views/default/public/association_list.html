@@ -26,7 +26,6 @@
 			</ul>
 		</div>
 	</div>
-	
 </div>
 <div class="page">
 	<div id="page" class="pagination"></div>
@@ -34,31 +33,30 @@
 
 {{include 'default/public/toTop.html'}}
 
-
 <!--注意放在jq下面-->
 <script src="{{__HOST__}}/default/jqPaginator.js"></script>
 <script>
-var mySwiper = new Swiper('.swiper-container',{
-	autoplay:true,
-	loop : true,
-	pagination: {
-	el: '.swiper-pagination',
-},
-	navigation: {
-	nextEl: '.swiper-button-next',
-	prevEl: '.swiper-button-prev',
-	}
-})
+	var mySwiper = new Swiper('.swiper-container',{
+		autoplay:true,
+		loop : true,
+		pagination: {
+		el: '.swiper-pagination',
+	},
+		navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+		}
+	});
+	
 	$('#page').jqPaginator({
-	totalPages: {{totalPages}},
-	visiblePages: 10,
-	currentPage: {{page}},
-	onPageChange: function (num, type) {
-	//console.log(num, type);
-
-	if(type=='change'){
-		location.href="{{__HOST__}}/summary?page="+num;
-	}
-	}
+		totalPages: {{totalPages}},
+		visiblePages: 10,
+		currentPage: {{page}},
+		onPageChange: function (num, type) {
+			//console.log(num, type);
+			if(type=='change'){
+				location.href="{{__HOST__}}/summary?page="+num;
+			}
+		}
 	});
 </script>       

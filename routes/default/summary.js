@@ -23,7 +23,7 @@ router.get('/',async (ctx)=>{
         page,
         pageSize,
         sortJson:{
-            'add_time':-1
+            'update_time':-1
         }
     });
     //查询社团----总数量count有多少？

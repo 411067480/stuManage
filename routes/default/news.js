@@ -33,10 +33,15 @@ router.get('/',async (ctx)=>{
         }
     });
     //console.log(news);
-
+    var aResult = await DB.find('associationcate',{},{},{
+        sortJson:{
+            'update_time':-1
+        }
+    });
     console.timeEnd('start');
     ctx.render('default/news',{
         nav:nav,
+        aResult:aResult,
         dataG:a,
         focus:focusResult,
         association_announce_result:association_announce_result[0],

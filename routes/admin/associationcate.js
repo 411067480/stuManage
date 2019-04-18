@@ -77,7 +77,7 @@ router.post('/doAdd',tools.multer().fields([{name:'pic',maxCount:1},{name:'intro
     let introduction=ctx.req.body.introduction ||'';
     let aStatus=ctx.req.body.aStatus;
     let keywords=ctx.req.body.keywords;
-    let add_time=tools.getTime();
+    let update_time=tools.getTime();
     
     if(pic,introcoverphoto){
         var json={

@@ -39,18 +39,16 @@ router.post('/doAdd',tools.multer_video().single('myfile'),async (ctx)=>{
         var status=ctx.req.body.status;
         var add_time=tools.getTime();
         //假若更换myfile，则....
-        
-       
-            var json={
-                myfile:myfile,
-                title:title,
-                sort:sort,
-                status:status,
-                add_time:add_time
-            }
-             //更新
-            await  DB.insert('video',json);
-            ctx.redirect(ctx.state.__HOST__+'/admin/video');
+        var json={
+            myfile:myfile,
+            title:title,
+            sort:sort,
+            status:status,
+            add_time:add_time
+        }
+            //更新
+        await  DB.insert('video',json);
+        ctx.redirect(ctx.state.__HOST__+'/admin/video');
         
     }catch(err){
         await ctx.render('admin/error',{
