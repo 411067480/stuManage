@@ -24,7 +24,7 @@ app.use(bodyParser());
 app.keys = ['some secret hurr'];
 const CONFIG = {
     key: 'koa:sess',
-    maxAge: 300000,
+    maxAge: 300000000,
     // maxAge: 300000,  //此处设置多长时间后系统后台自动退出登录 此处为300秒，约合5分钟
     overwrite: true,
     httpOnly: true,
